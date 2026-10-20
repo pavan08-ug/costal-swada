@@ -1,0 +1,1079 @@
+PROJECT NAME: COASTAL SWADA
+PROJECT TYPE: Premium Coastal Restaurant Food Ordering Website
+
+YOUR ROLE:
+Act as a senior UI/UX designer, frontend engineer, and product designer who has built premium food ordering platforms similar to Swiggy and Zomato.
+
+Build a complete, polished, responsive, production-quality frontend for a coastal restaurant called "Coastal Swada".
+
+IMPORTANT:
+Build the actual working frontend, not just a design concept or static mockup.
+
+The website should have a premium visual identity, smooth animations, realistic food cards, functional cart interactions, a complete checkout experience, and WhatsApp-based ordering.
+
+The overall experience should be inspired by the convenience of Swiggy and Zomato, but the branding, layouts, typography, and visual identity must be original to Coastal Swada.
+
+Do not create a generic restaurant template.
+
+==================================================
+1. BRAND IDENTITY AND DESIGN SYSTEM
+==================================================
+
+Restaurant Name: Coastal Swada
+
+Brand Personality:
+- Premium
+- Authentic
+- Coastal Karnataka inspired
+- Trustworthy
+- Modern
+- Warm and welcoming
+- Professional
+
+Design Direction:
+
+Create a sophisticated visual identity inspired by the coastal cuisine of Karnataka, especially Mangalorean and Karavali food culture.
+
+Use a premium combination of:
+
+- Deep ocean green
+- Warm cream
+- Muted terracotta
+- Charcoal
+- Subtle golden accents
+
+Suggested colors:
+
+Primary: #174D43
+Secondary: #D56B45
+Background: #FFFDF8
+Surface: #FFFFFF
+Primary Text: #202923
+Secondary Text: #777C76
+Border: #E9E5DC
+Accent: #D9AC64
+
+Use these colors consistently throughout the website.
+
+Typography:
+- Use a modern, elegant font pairing.
+- Use a premium display font for headings.
+- Use a clean sans-serif font for menus, descriptions, prices, and buttons.
+- Ensure excellent readability on mobile devices.
+
+Visual Style:
+- Large, high-quality food photography.
+- Generous white space.
+- Clean layouts.
+- Rounded cards with subtle shadows.
+- Refined borders.
+- Smooth transitions.
+- Tasteful animations.
+- Premium button styles.
+- Consistent spacing and alignment.
+
+Avoid:
+- Excessive gradients.
+- Too many colors.
+- Overly rounded cartoon-like cards.
+- Excessive animations.
+- Cheap-looking food images.
+- Crowded layouts.
+- Generic dashboard aesthetics.
+
+The website should look like a professionally designed food ordering platform created by an experienced product design team.
+
+==================================================
+2. TECHNOLOGY STACK
+==================================================
+
+Use the existing project stack if a project already exists.
+
+If starting from scratch, use:
+
+- React
+- TypeScript
+- Tailwind CSS
+- Lucide React icons
+- React Router for navigation if required
+- Context API or an appropriate lightweight state management solution
+- LocalStorage for cart persistence and temporary frontend session data
+
+Use reusable components and maintain a clean project structure.
+
+Do not introduce an unnecessarily complicated backend.
+
+IMPORTANT:
+This is the first frontend phase.
+
+Do not integrate a payment gateway.
+Do not create a complex backend.
+Do not implement real authentication using fake security.
+Do not claim that a restaurant order has been placed merely because WhatsApp opened.
+
+Use mock restaurant data for the initial UI, with a clear structure that allows real restaurant data to be connected later.
+
+==================================================
+3. CUSTOMER AUTHENTICATION
+==================================================
+
+Create a premium login and registration experience.
+
+The customer should be able to enter:
+
+1. Full Name
+2. Mobile Number
+3. Password
+
+Provide a clean form with:
+
+- Coastal Swada branding
+- Welcome heading
+- Short, welcoming subtitle
+- Full name input
+- Indian mobile number input
+- Password input
+- Show/hide password control
+- Continue button
+- Appropriate validation messages
+
+Suggested heading:
+
+"Good food begins here."
+
+Subtitle:
+
+"Discover the authentic flavours of the Karavali coast."
+
+Requirements:
+
+- Validate the customer's name.
+- Validate the Indian mobile number.
+- Require a password.
+- Show friendly validation errors.
+- Include a show/hide password feature.
+- Make the form responsive.
+- Provide a polished loading state when submitting.
+
+Allow customers to switch between sign-in and account creation.
+
+For the frontend prototype, use clearly identified demo authentication and local session state.
+
+Do not pretend that a password is securely authenticated or stored if no real authentication backend exists.
+
+Never store a customer's password in LocalStorage.
+
+Keep the authentication implementation ready for future integration with a secure backend.
+
+==================================================
+4. LOCATION ACCESS
+==================================================
+
+After successful sign-in or registration, guide the customer to select their delivery location.
+
+Create a premium location selection screen.
+
+Heading:
+
+"Where should we deliver?"
+
+Provide:
+
+- Use my current location button.
+- Manual address entry.
+- House or building name.
+- Street or locality.
+- Landmark.
+- City.
+- PIN code.
+- Save location button.
+
+Use the browser Geolocation API when the customer explicitly grants permission.
+
+If location access is denied, show a friendly explanation and allow manual address entry.
+
+Do not block the customer from continuing when location permission is unavailable.
+
+Do not display fabricated GPS coordinates or pretend that a location was detected.
+
+For the initial frontend, store the selected delivery address in application state and persist appropriate non-sensitive address information when needed.
+
+Make it easy to change the delivery address later from the home page.
+
+==================================================
+5. HOME PAGE AND FOOD DISCOVERY
+==================================================
+
+The home page is the most important part of the entire website.
+
+It must immediately capture the customer's attention and encourage them to order food.
+
+Design it with the quality of a modern food delivery platform.
+
+------------------------------
+A. TOP NAVIGATION BAR
+------------------------------
+
+Create a clean, premium navigation bar.
+
+Desktop layout:
+
+LEFT:
+- Coastal Swada logo or wordmark.
+- Small coastal-inspired brand symbol.
+
+CENTER:
+- Delivery location selector.
+- Search food input.
+
+RIGHT:
+- Home
+- Account
+- Cart icon with live item count.
+
+The header should be sticky on desktop if appropriate.
+
+On mobile, keep the header compact.
+
+Show:
+- Brand logo.
+- Selected location.
+- Cart icon with item count.
+
+Use an intuitive layout that does not consume too much screen space.
+
+------------------------------
+B. HERO SECTION
+------------------------------
+
+Create a visually striking hero section.
+
+Use a high-quality image featuring authentic coastal Karnataka cuisine.
+
+Suggested heading:
+
+"A Taste of the Karavali Coast."
+
+Supporting text:
+
+"Freshly prepared. Rich in tradition. Delivered with love."
+
+Primary CTA:
+"Explore Menu"
+
+Secondary CTA:
+"Discover Our Specialities"
+
+Use a large food image, sophisticated typography, and a premium composition.
+
+Do not overcrowd the hero section with excessive text.
+
+The hero should communicate the restaurant's identity within seconds.
+
+------------------------------
+C. POPULAR KARAVALI DISHES
+------------------------------
+
+Immediately below the hero section, display a section titled:
+
+"Karavali Favourites"
+
+Subtitle:
+
+"The coastal classics everyone comes back for."
+
+This section is critical.
+
+Display the most appealing coastal Karnataka dishes first.
+
+Use a horizontal scrolling carousel on mobile and a clean grid or carousel on desktop.
+
+Possible sample dishes:
+
+1. Mangalorean Chicken Ghee Roast
+2. Anjal Tawa Fry
+3. Kane Rava Fry
+4. Neer Dosa
+5. Chicken Sukka
+6. Prawn Ghee Roast
+7. Fish Curry Rice
+8. Kori Rotti
+9. Chicken Biryani
+10. Squid Ghee Roast
+
+These are sample menu items only.
+
+IMPORTANT:
+Do not assume every dish is available at the restaurant.
+
+Clearly separate featured sample content from the restaurant's confirmed menu data.
+
+When real restaurant data becomes available, only show dishes that the restaurant actually serves.
+
+Each food card must include:
+
+- High-quality food image.
+- Dish name.
+- Short description.
+- Price in Indian rupees.
+- Vegetarian or non-vegetarian indicator.
+- Optional bestseller badge.
+- Add button.
+
+Example:
+
+Mangalorean Chicken Ghee Roast
+"Fiery coastal spices, roasted to perfection."
+₹289
+
+[ + Add ]
+
+Use realistic sample prices only for the frontend demonstration.
+
+Do not invent restaurant claims such as customer ratings, preparation times, or awards.
+
+Only display such information when genuine data is supplied.
+
+------------------------------
+D. MENU CATEGORY NAVIGATION
+------------------------------
+
+Create an attractive category navigation area.
+
+Possible categories:
+
+- All Items
+- Coastal Specials
+- Fish & Seafood
+- Chicken
+- Mutton
+- Vegetarian
+- Dosa & Meals
+- Biryani
+- Starters
+- Beverages
+- Desserts
+
+Use elegant category chips with clear active states.
+
+When a category is selected, show the matching dishes.
+
+Provide smooth scrolling or filtering as appropriate.
+
+The category navigation should be easy to use on mobile.
+
+------------------------------
+E. SEARCH
+------------------------------
+
+Implement a functional menu search.
+
+Customers should be able to search for:
+
+- Food name.
+- Ingredient.
+- Category.
+
+Example:
+Searching for "prawn" should display matching prawn dishes.
+
+Include:
+- Search icon.
+- Clear button.
+- Empty search state.
+- No-results message.
+
+The search should work with the sample menu data.
+
+------------------------------
+F. RESTAURANT MENU
+------------------------------
+
+Below the featured dishes, create the main menu.
+
+Section title:
+
+"Explore Our Menu"
+
+Show the dishes organized by category.
+
+Each food item should include:
+
+- Food image.
+- Food name.
+- Short description.
+- Price.
+- Veg/non-veg indicator.
+- Availability status where applicable.
+- Quantity controls after adding.
+- Add-to-cart button.
+
+Use an attractive responsive grid on desktop and an efficient food-list layout on mobile.
+
+Food images should have consistent aspect ratios.
+
+Food names and prices must be easy to scan.
+
+Do not make the cards unnecessarily tall.
+
+Include a simple unavailable state for dishes that are sold out.
+
+Unavailable dishes must not be added to the cart.
+
+Keep all menu data in a reusable data structure so the real menu can be connected later.
+
+==================================================
+6. ADD TO CART INTERACTIONS
+==================================================
+
+Implement a complete, working frontend cart.
+
+When the customer taps Add:
+
+1. Add the selected dish to the cart.
+2. Update the cart item count.
+3. Replace the Add button with quantity controls where appropriate.
+4. Display a polished cart confirmation interaction.
+5. Update the subtotal immediately.
+
+Quantity controls:
+
+[ − ] 1 [ + ]
+
+When the quantity reaches zero, remove the dish from the cart.
+
+If the same dish is added again, increase its quantity instead of creating duplicate entries.
+
+The cart must support multiple different dishes.
+
+Persist the cart using LocalStorage so it survives page refreshes.
+
+Do not clear the cart merely because the customer navigates between pages.
+
+------------------------------
+CART CONFIRMATION EXPERIENCE
+------------------------------
+
+Create a polished cart interaction inspired by the convenience of Swiggy and Zomato.
+
+On desktop:
+- Show a compact toast or cart confirmation panel.
+
+On mobile:
+- Show a bottom confirmation sheet or compact sticky cart bar.
+
+Example:
+
+"Added to your cart"
+
+Chicken Ghee Roast × 1
+
+Subtotal: ₹289
+
+[ View Cart ]
+
+The mobile sticky cart bar should appear when the cart contains at least one item.
+
+Example:
+
+"3 items | ₹547"
+
+[ View Cart → ]
+
+The cart confirmation should be smooth, visually clear, and easy to dismiss.
+
+Avoid blocking the customer from continuing to explore the menu.
+
+==================================================
+7. CART PAGE
+==================================================
+
+Create a dedicated cart page.
+
+Page heading:
+
+"Your Cart"
+
+Subtitle:
+
+"Your favourites, coming together."
+
+Use a polished checkout layout inspired by leading food delivery platforms.
+
+------------------------------
+A. CART ITEMS
+------------------------------
+
+For each item, display:
+
+- Food image.
+- Dish name.
+- Short description.
+- Unit price.
+- Quantity controls.
+- Item total.
+- Remove option.
+
+Example:
+
+Chicken Ghee Roast
+₹289 × 2 = ₹578
+
+[ − ] 2 [ + ]
+
+Customers must be able to increase or decrease the quantity.
+
+Changes should update all totals immediately.
+
+If the cart becomes empty, show a beautiful empty-cart screen.
+
+Message:
+
+"Your cart is waiting for something delicious."
+
+Button:
+
+"Explore Menu"
+
+The button should take the customer back to the menu.
+
+------------------------------
+B. YOU MAY ALSO LIKE
+------------------------------
+
+Create an upselling section inspired by food delivery apps.
+
+Heading:
+
+"Complete Your Meal"
+
+Subtitle:
+
+"A little extra makes it better."
+
+Suggest complementary products, such as:
+
+- Bottled water.
+- Soft drinks.
+- Buttermilk.
+- Fresh lime soda.
+- Extra neer dosa.
+- Parotta.
+- French fries.
+- Chicken starters.
+- Extra chutney.
+
+These are sample recommendations.
+
+Only show products that are present in the configured menu data.
+
+Each recommendation should have:
+
+- Small product image.
+- Name.
+- Price.
+- Compact Add button.
+
+Adding a suggested product must update the same cart.
+
+Prevent duplicate cart entries for the same product by updating its quantity.
+
+------------------------------
+C. DELIVERY ADDRESS
+------------------------------
+
+Display the currently selected delivery address.
+
+Provide a Change Address option.
+
+If the customer has not provided an address, ask them to enter one before ordering.
+
+------------------------------
+D. BILL SUMMARY
+------------------------------
+
+Create a clear bill summary.
+
+Example:
+
+Item Total                 ₹547
+Delivery Fee               ₹40
+Packaging Charges          ₹10
+Discount                   ₹0
+--------------------------------
+Grand Total                ₹597
+
+IMPORTANT:
+These values are examples for demonstrating the UI.
+
+Do not present arbitrary delivery or packaging charges as the restaurant's actual charges.
+
+Use configurable values.
+
+If the restaurant's actual charges are not known, clearly label them as demo values or configure them as zero until confirmed.
+
+Calculate the item subtotal from the real cart contents.
+
+Calculate the final total correctly.
+
+Display all amounts in INR.
+
+Avoid hidden charges.
+
+------------------------------
+E. ORDER BUTTON
+------------------------------
+
+At the bottom of the cart page, create a prominent CTA:
+
+"Order via WhatsApp"
+
+Use the primary brand color.
+
+Add a WhatsApp icon.
+
+The button should be clearly visible on mobile.
+
+Before opening WhatsApp:
+
+- Validate that the cart contains at least one item.
+- Validate the customer's name.
+- Validate the customer's mobile number.
+- Validate the delivery address.
+- Calculate the latest bill total.
+- Generate the order message using the latest cart data.
+
+Do not implement a payment gateway.
+
+WhatsApp will be used to send the order request to the restaurant.
+
+==================================================
+8. WHATSAPP ORDERING SYSTEM
+==================================================
+
+This is one of the most important features.
+
+When the customer clicks "Order via WhatsApp", generate a professional order message.
+
+Open WhatsApp using the appropriate wa.me URL.
+
+The restaurant's WhatsApp number must be configurable.
+
+Do not invent a real restaurant phone number.
+
+Use a placeholder configuration value until the restaurant provides its actual WhatsApp number.
+
+Use the international format without spaces or special characters in the wa.me phone number.
+
+Example configuration:
+
+RESTAURANT_WHATSAPP_NUMBER = "91XXXXXXXXXX"
+
+This is a placeholder and must be replaced with the actual number before launch.
+
+------------------------------
+WHATSAPP MESSAGE FORMAT
+------------------------------
+
+Generate a clean message in the following format:
+
+NEW FOOD ORDER - COASTAL SWADA
+
+Order Reference: CS-XXXXXXXX
+
+CUSTOMER DETAILS
+
+Name: [Customer Name]
+Mobile: [Customer Mobile Number]
+
+DELIVERY ADDRESS
+
+[Complete Delivery Address]
+Landmark: [Landmark if available]
+City: [City]
+PIN Code: [PIN Code]
+
+ORDER ITEMS
+
+1. Chicken Ghee Roast
+   Quantity: 2
+   Unit Price: ₹289
+   Item Total: ₹578
+
+2. Neer Dosa
+   Quantity: 4
+   Unit Price: ₹40
+   Item Total: ₹160
+
+3. Fresh Lime Soda
+   Quantity: 2
+   Unit Price: ₹60
+   Item Total: ₹120
+
+BILL SUMMARY
+
+Item Total: ₹858
+Delivery Fee: ₹40
+Packaging Charges: ₹10
+Discount: ₹0
+
+GRAND TOTAL: ₹908
+
+SPECIAL INSTRUCTIONS:
+[Customer instructions, if provided]
+
+ORDER TYPE: Home Delivery
+
+Please confirm the availability and delivery details for this order.
+
+------------------------------
+WHATSAPP IMPLEMENTATION
+------------------------------
+
+Use JavaScript to generate the order message dynamically.
+
+Encode the complete message safely using encodeURIComponent().
+
+Construct a URL similar to:
+
+https://wa.me/RESTAURANT_NUMBER?text=ENCODED_MESSAGE
+
+Open the URL using an appropriate browser navigation method.
+
+Requirements:
+
+- Use the customer's actual name.
+- Use the customer's actual mobile number.
+- Use the customer's saved delivery address.
+- Include every item in the cart.
+- Include the correct quantity of each item.
+- Include unit prices and item totals.
+- Include delivery and packaging charges where configured.
+- Include discounts only when legitimately configured.
+- Include the correct grand total.
+- Include special instructions when provided.
+- Generate an order reference for identification.
+- Format the message so it is readable in WhatsApp.
+
+IMPORTANT:
+
+Opening WhatsApp does not automatically confirm an order.
+
+Explain through the UI that the customer must send the message to submit the order request.
+
+Do not show a fake "Order Successfully Placed" screen before the message is actually sent.
+
+After the customer returns to the website, do not automatically assume that the restaurant received or accepted the order.
+
+Do not automatically clear the cart simply because WhatsApp opened.
+
+The frontend should be designed so that a real order-confirmation system can be added later.
+
+==================================================
+9. ACCOUNT SECTION
+==================================================
+
+Create a dedicated account page.
+
+It should display:
+
+- Customer name.
+- Mobile number.
+- Saved delivery address.
+- Edit profile option.
+- Change delivery address.
+- Previous orders section placeholder.
+- Help and support.
+- About Coastal Swada.
+- Logout.
+
+Use realistic layouts and clear visual hierarchy.
+
+For the initial frontend, profile information may come from demo session data.
+
+Do not fabricate actual previous orders.
+
+If no order history is available, show:
+
+"Your previous orders will appear here."
+
+Add a logout action that clears the frontend session appropriately.
+
+Do not clear the cart unless that behavior is explicitly intended.
+
+==================================================
+10. MOBILE NAVIGATION
+==================================================
+
+The mobile experience is extremely important.
+
+Create a fixed bottom navigation bar.
+
+Include exactly these primary navigation destinations:
+
+1. Home
+2. Account
+3. Cart
+
+Use clean Lucide icons.
+
+Show an active indicator for the selected page.
+
+Show a live cart item count badge.
+
+The navigation bar must:
+
+- Respect mobile safe areas.
+- Avoid covering page content.
+- Work on Android and iOS browsers.
+- Remain visually consistent with the brand.
+- Use subtle animations.
+- Have sufficient touch targets.
+
+On desktop, use the top navigation bar and do not display an unnecessary mobile-style bottom navigation bar.
+
+The interface should feel familiar to users of Swiggy and Zomato without copying their exact visual design.
+
+==================================================
+11. RESPONSIVE DESIGN
+==================================================
+
+Build the entire website for:
+
+- Mobile phones.
+- Tablets.
+- Laptops.
+- Desktop screens.
+
+Mobile requirements:
+
+- Optimized food cards.
+- Easy-to-tap Add buttons.
+- Horizontal food category scrolling.
+- Sticky cart bar.
+- Fixed bottom navigation.
+- Compact checkout summary.
+- Readable typography.
+- No horizontal overflow.
+- No content hidden behind fixed elements.
+
+Desktop requirements:
+
+- Balanced page width.
+- Consistent spacing.
+- Attractive hero section.
+- Well-organized food grids.
+- Properly aligned cart and bill summary.
+- Professional header.
+- Smooth hover states.
+
+Test at common viewport sizes.
+
+Ensure that the experience remains polished on smaller Android phones.
+
+==================================================
+12. ANIMATIONS AND MICRO-INTERACTIONS
+==================================================
+
+Add tasteful animations.
+
+Examples:
+
+- Smooth page transitions.
+- Subtle food-card hover effects.
+- Add-to-cart feedback.
+- Animated quantity changes.
+- Cart badge updates.
+- Smooth category scrolling.
+- Toast notifications.
+- Loading skeletons.
+- Modal transitions.
+- Button hover and pressed states.
+
+Keep animations lightweight.
+
+Avoid excessive motion.
+
+Respect the user's reduced-motion preference.
+
+==================================================
+13. FOOD IMAGES AND CONTENT QUALITY
+==================================================
+
+Use attractive, high-quality food imagery.
+
+Prioritize authentic-looking coastal Karnataka dishes.
+
+Avoid:
+- Unrelated food images.
+- Images that do not match the dish name.
+- Distorted food images.
+- Inconsistent image dimensions.
+- Broken image links.
+- Generic placeholder icons replacing food images everywhere.
+
+Use an image fallback when a food image fails to load.
+
+Keep image URLs and food information inside a centralized menu data file.
+
+Make it easy to replace demo images with the restaurant's own photography.
+
+Do not claim that stock food photographs depict the restaurant's actual dishes.
+
+==================================================
+14. FUNCTIONAL REQUIREMENTS
+==================================================
+
+The following features must actually work in the frontend:
+
+1. Sign-in and registration UI.
+2. Name, mobile number, and password validation.
+3. Demo session handling.
+4. Location permission request.
+5. Manual address selection.
+6. Home page navigation.
+7. Food category filtering.
+8. Food search.
+9. Add to cart.
+10. Increase quantity.
+11. Decrease quantity.
+12. Remove items.
+13. Cart count updates.
+14. Cart subtotal calculations.
+15. Cart persistence after refresh.
+16. Recommended product additions.
+17. Delivery address selection.
+18. Bill summary calculations.
+19. Customer profile display.
+20. Account navigation.
+21. Mobile bottom navigation.
+22. WhatsApp message generation.
+23. WhatsApp order link creation.
+24. Empty-cart state.
+25. Sold-out item handling.
+26. Responsive layouts.
+27. Friendly validation messages.
+28. Error and empty states.
+
+Do not create buttons that look functional but do nothing.
+
+If a feature requires a backend, implement an honest frontend prototype and clearly separate it from production functionality.
+
+==================================================
+15. CODE QUALITY AND PROJECT STRUCTURE
+==================================================
+
+Use reusable components.
+
+Suggested component structure:
+
+src/
+  components/
+    Navbar
+    MobileBottomNav
+    HeroSection
+    FoodCard
+    FoodCarousel
+    CategoryNavigation
+    SearchBar
+    CartItem
+    CartConfirmation
+    StickyCartBar
+    BillSummary
+    AddressSelector
+    WhatsAppOrderButton
+    EmptyCart
+    LoadingSkeleton
+
+  pages/
+    LoginPage
+    LocationPage
+    HomePage
+    CartPage
+    AccountPage
+
+  context/
+    AuthContext
+    CartContext
+
+  data/
+    menuData
+    restaurantConfig
+
+  utils/
+    cartCalculations
+    validation
+    whatsappOrder
+
+  types/
+    index
+
+Adjust this structure to match the existing project.
+
+Keep business logic separate from UI components.
+
+Use TypeScript types for products, customers, addresses, and cart items.
+
+Avoid duplicating cart calculations across components.
+
+Ensure that all components use the same source of truth for cart data.
+
+Use reusable functions to calculate item totals, subtotal, delivery charges, packaging charges, discounts, and grand total.
+
+Ensure the WhatsApp message uses the same calculated bill displayed on the cart page.
+
+==================================================
+16. IMPORTANT BUSINESS RULES
+==================================================
+
+Follow these rules throughout the implementation:
+
+- Prices must be displayed in Indian rupees.
+- The cart must always reflect the selected quantities.
+- The displayed grand total must match the WhatsApp order message.
+- Unavailable products cannot be added.
+- Customers must provide a delivery address before ordering for delivery.
+- Customers must have at least one item in the cart before proceeding.
+- The restaurant WhatsApp number must be configurable.
+- Do not integrate payment gateways.
+- Do not claim to have completed a real order.
+- Do not pretend demo authentication is secure production authentication.
+- Do not invent the restaurant's actual menu, prices, location, or phone number.
+- Make demo content easy to replace.
+- Do not clear the cart when navigating between pages.
+- Avoid collecting unnecessary personal information.
+- Never store passwords in LocalStorage.
+- Ensure that the customer can return from the cart to the menu without losing items.
+
+==================================================
+17. FINAL DESIGN EXPECTATION
+==================================================
+
+The finished website should feel like a premium, modern restaurant ordering product.
+
+When customers open the website, they should immediately see appealing food photography and discover popular Karavali dishes.
+
+They should be able to browse the restaurant menu, search for dishes, add food to their cart, adjust quantities, discover complementary items, review their bill, and send their order request through WhatsApp.
+
+The complete experience should feel smooth, trustworthy, and intuitive.
+
+The website must not look like a college project or a generic AI-generated template.
+
+It should look like a professionally designed restaurant ordering platform that could be presented to a real restaurant owner.
+
+FINAL INSTRUCTIONS:
+
+1. Inspect the existing project before making changes.
+2. Reuse the existing framework and dependencies where practical.
+3. Build the actual pages and interactions.
+4. Do not stop after creating the landing page.
+5. Complete the login, location, home, cart, account, and WhatsApp ordering flows.
+6. Run the application and test the main customer journey.
+7. Fix build errors, runtime errors, broken imports, and console errors.
+8. Verify the quantity calculations and WhatsApp bill calculations.
+9. Check the mobile layout carefully.
+10. Do not introduce unnecessary backend services.
+11. Do not add a payment gateway.
+12. Do not invent restaurant-specific facts.
+
+Start by examining the existing codebase, then implement the complete Coastal Swada frontend.

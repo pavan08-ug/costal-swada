@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Coastal Swada"
+description = "A premium coastal Karnataka restaurant ordering website for browsing a replaceable sample menu, building a persistent cart, reviewing checkout details, and sending an order request through WhatsApp."
+version = "1.0.0"
+id = "artifacts/coastal-swada"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25286
+
+[services.development]
+run = "pnpm --filter @workspace/coastal-swada run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/coastal-swada", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/coastal-swada/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25286"
+BASE_PATH = "/"
