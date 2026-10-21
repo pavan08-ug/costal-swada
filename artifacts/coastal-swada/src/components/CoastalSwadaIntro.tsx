@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
-import { Utensils, ChevronDown, ArrowRight } from 'lucide-react';
+import { Utensils, ChevronDown } from 'lucide-react';
 
 interface IntroProps {
   onComplete: () => void;
@@ -161,21 +161,6 @@ export function CoastalSwadaIntro({ onComplete, isExiting }: IntroProps) {
       role="dialog"
       aria-modal="true"
     >
-      {/* TOP RIGHT SKIP BUTTON */}
-      <button
-        type="button"
-        onClick={(e) => {
-          e.stopPropagation();
-          triggerTransition();
-        }}
-        className="absolute top-5 right-5 z-20 flex items-center gap-1.5 rounded-full border border-[#43302a] bg-[#1b1513]/85 hover:bg-[#241a17] backdrop-blur-md px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-[#fff5e8] hover:text-[#ff8b48] hover:border-[#ff8b48] transition-all shadow-lg active:scale-95"
-        aria-label="Skip introduction"
-        data-testid="button-skip-intro"
-      >
-        <span>Skip</span>
-        <ArrowRight className="w-3.5 h-3.5" />
-      </button>
-
       {/* BACKGROUND SCENES — layers always in DOM, crossfaded by opacity only */}
       <div
         className="absolute inset-0 overflow-hidden pointer-events-none"
