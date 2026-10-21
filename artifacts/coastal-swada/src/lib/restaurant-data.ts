@@ -127,3 +127,9 @@ export function buildWhatsAppMessage(summary: OrderSummary, customer: Customer, 
     'ಧನ್ಯವಾದಗಳು! 🙏',
   ].join('\n');
 }
+
+export const DEFAULT_WHATSAPP_INQUIRY_MESSAGE = `ನಮಸ್ಕಾರ COASTAL SWADA 🙏
+ಸಾಲಿಗ್ರಾಮದ ನಿಮ್ಮ ರೆಸ್ಟೋರೆಂಟ್ನ ಮೆನು, ಲಭ್ಯತೆ ಮತ್ತು ಆರ್ಡರ್ ಕುರಿತು ಮಾಹಿತಿ ಬೇಕು.`;
+
+export const DEFAULT_WHATSAPP_LINK = `https://wa.me/919538596072?text=${encodeURIComponent(DEFAULT_WHATSAPP_INQUIRY_MESSAGE)}`;
+

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState, type FormEvent, type SyntheticEvent } from 'react';
 import { Link, Route, Router, Switch, useLocation } from 'wouter';
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Check, ChefHat, ChevronDown, CircleUserRound, Clock3, Eye, EyeOff, Home as HomeIcon, Lock, LogOut, MapPin, MessageCircle, Minus, Phone, Plus, Search, ShieldCheck, ShoppingBag, Trash2, Utensils, X } from 'lucide-react';
-import { Address, calculateOrder, CartItem, Customer, money, products as initialProducts, defaultProducts, restaurantConfig, categories, buildWhatsAppMessage, createOrderReference, Product } from './lib/restaurant-data';
+import { Address, calculateOrder, CartItem, Customer, money, products as initialProducts, defaultProducts, restaurantConfig, categories, buildWhatsAppMessage, createOrderReference, Product, DEFAULT_WHATSAPP_LINK } from './lib/restaurant-data';
 import { CoastalSwadaIntro } from './components/CoastalSwadaIntro';
 import { AdminPage } from './components/AdminPage';
 
@@ -46,9 +46,9 @@ function usePersisted<T>(key: string, fallback: T) {
   useEffect(() => { localStorage.setItem(key, JSON.stringify(value)); }, [key, value]);
   return [value, setValue] as const;
 }
-const fieldClass = 'w-full rounded-xl border border-[#43302a] bg-[#1b1513] px-4 py-3 text-[14px] text-[#fff5e8] outline-none transition placeholder:text-[#5a4540] focus:border-[#f24b26] focus:ring-2 focus:ring-[#f24b26]/15';
-const primaryClass = 'inline-flex items-center justify-center gap-2 rounded-full bg-[#f24b26] px-6 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-[#ff6a3d] hover:shadow-[0_6px_20px_rgba(242,75,38,0.4)] hover:-translate-y-0.5 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-45 shadow-[0_4px_14px_rgba(242,75,38,0.25)]';
-const secondaryClass = 'inline-flex items-center justify-center gap-2 rounded-full border border-[#43302a] bg-[#1b1513] px-6 py-3.5 text-sm font-semibold text-[#bba99d] transition-all duration-200 hover:border-[#f24b26] hover:text-[#f24b26] hover:bg-[#241a17] hover:shadow-[0_4px_14px_rgba(242,75,38,0.15)] hover:-translate-y-0.5 active:translate-y-0 shadow-sm';
+const fieldClass = 'w-full rounded-xl border border-[#62453a] bg-[#150f0e] px-4 py-3 text-[14px] text-white outline-none transition placeholder:text-[#bba99d]/60 focus:border-[#ff7757] focus:ring-1 focus:ring-[#ff7757]';
+const primaryClass = 'inline-flex items-center justify-center gap-2 rounded-lg bg-[#f24b26] px-6 py-3.5 text-sm font-black text-white transition-all duration-200 hover:bg-[#ff683f] hover:shadow-[0_7px_25px_rgba(242,75,38,0.35)] hover:-translate-y-0.5 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-45 shadow-[0_7px_25px_rgba(242,75,38,0.25)]';
+const secondaryClass = 'inline-flex items-center justify-center gap-2 rounded-lg border border-[#94634b] bg-white/[0.045] px-6 py-3.5 text-sm font-black text-[#fff5e8] transition-all duration-200 hover:border-[#ff8b48] hover:text-[#ff8b48] hover:bg-[#241a17] hover:-translate-y-0.5 active:translate-y-0 shadow-sm';
 
 function App() {
   const [showIntro, setShowIntro] = useState(() => {
@@ -105,13 +105,13 @@ function App() {
       )}
 
       <div className="min-h-[100dvh] bg-[#100d0c] text-[#fff5e8] selection:bg-[#43302a] selection:text-[#ff8b48]">
-        <header className="sticky top-0 z-40 border-b border-[#43302a] bg-[#100d0c]/95 backdrop-blur-md transition-colors">
+        <header className="sticky top-0 z-40 border-b border-white/[0.08] bg-[#100d0c]/96 backdrop-blur-md transition-colors">
           <div className="shell flex h-[76px] items-center justify-between">
             <Link href="/" className="flex items-center gap-3 no-underline group" data-testid="link-brand">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-[#f24b26] text-white shadow-[0_4px_14px_rgba(242,75,38,0.4)] transition-transform group-hover:scale-105"><Utensils size={18}/></span>
+              <span className="grid h-10 w-10 place-items-center rounded-full bg-[#f24b26] text-white shadow-[0_0_0_2px_#e95531,0_0_20px_#a433241f] transition-transform group-hover:scale-105"><Utensils size={18}/></span>
               <span className="leading-none">
-                <strong className="font-display text-[22px] font-bold tracking-[-.02em] text-[#fff5e8] uppercase" style={{fontFamily:'Barlow Condensed,sans-serif',letterSpacing:'-.01em'}}>COASTAL SWADA</strong>
-                <small className="mt-0.5 block text-[9px] font-semibold uppercase tracking-[.2em] text-[#f24b26]">ಕರಾವಳಿ ಕುಟುಂಬ ರೆಸ್ಟಾರೆಂಟ್</small>
+                <strong className="font-display text-[26px] font-black tracking-[0.5px] text-[#fff] uppercase" style={{fontFamily:'Barlow Condensed,sans-serif'}}>COASTAL SWADA</strong>
+                <small className="mt-0.5 block text-[9px] font-extrabold uppercase tracking-[1.25px] text-[#c2a99e]">ಕರಾವಳಿ ಕುಟುಂಬ ರೆಸ್ಟಾರೆಂಟ್</small>
               </span>
             </Link>
             <Link href="/location" className="header-location" data-testid="link-header-location">
@@ -127,7 +127,7 @@ function App() {
             </nav>
             <div className="flex items-center gap-2">
               <Link href="/login" className="grid h-10 w-10 place-items-center rounded-full text-[#bba99d] transition hover:bg-[#241a17] hover:text-[#fff5e8]" aria-label="Guest profile" data-testid="link-login"><CircleUserRound size={20}/></Link>
-              <Link href="/cart" className="relative inline-flex h-11 items-center gap-2 rounded-full bg-[#f24b26] px-4 text-sm font-semibold text-white transition hover:bg-[#ff6a3d] shadow-[0_4px_14px_rgba(242,75,38,0.3)] hover:shadow-[0_6px_20px_rgba(242,75,38,0.4)]" data-testid="link-cart"><ShoppingBag size={17}/><span className="hidden sm:inline">Your bag</span>{count > 0 && <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full border-2 border-[#100d0c] bg-[#f9c778] px-1 text-[10px] font-bold text-[#100d0c]" data-testid="text-cart-count">{count}</span>}</Link>
+              <Link href="/cart" className="relative inline-flex h-11 items-center gap-2 rounded-lg bg-[#f24b26] px-4 text-sm font-black text-white transition hover:bg-[#ff683f] shadow-[0_7px_25px_rgba(242,75,38,0.25)]" data-testid="link-cart"><ShoppingBag size={17}/><span className="hidden sm:inline">Your bag</span>{count > 0 && <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-[#fff5e8] px-1 text-[11px] font-black text-[#cb391f] shadow-sm" data-testid="text-cart-count">{count}</span>}</Link>
               {/* Secret Owner Access Button: Discrete, low-contrast lock */}
               <Link href="/admin" className="opacity-20 hover:opacity-100 transition-opacity p-1.5 text-[#bba99d] hover:text-[#f24b26] rounded-full hover:bg-[#241a17] ml-0.5" title="Management" aria-label="Staff Access" data-testid="secret-header-owner-btn">
                 <Lock size={13}/>
@@ -135,7 +135,7 @@ function App() {
             </div>
           </div>
         </header>
-        <div className="demo-banner" data-testid="status-demo"><span className="demo-dot"/> Coastal Swada · Authentic Karavali Cuisine &amp; WhatsApp Ordering</div>
+        <div className="demo-banner" data-testid="status-demo"><b>COASTAL SWADA</b> · Authentic Karavali Cuisine &amp; WhatsApp Ordering</div>
         <main className="page-enter">
           <Switch>
             <Route path="/" component={() => <Home cart={cart} changeQuantity={changeQuantity} products={productsList} onReplayIntro={handleReplayIntro}/>}/>
@@ -154,96 +154,92 @@ function App() {
           <Link href="/account" className={path === '/account' ? 'active' : ''} aria-current={path === '/account' ? 'page' : undefined} data-testid="mobile-account"><CircleUserRound size={19}/><span>Account</span></Link>
           <Link href="/cart" className={path === '/cart' ? 'active' : ''} aria-current={path === '/cart' ? 'page' : undefined} data-testid="mobile-cart"><span className="mobile-cart-icon"><ShoppingBag size={19}/>{count > 0 && <i data-testid="mobile-cart-count">{count}</i>}</span><span>Cart</span></Link>
         </nav>
-        <footer className="mt-12 sm:mt-16 border-t border-[#43302a] text-[#fff5e8] overflow-hidden relative" style={{ background: 'linear-gradient(180deg, #1b1513 0%, #100d0c 100%)' }}>
-          <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-[#f24b26]/10 via-transparent to-transparent pointer-events-none rounded-full blur-3xl" />
+        <footer className="mt-12 sm:mt-16 overflow-hidden relative" style={{ background: '#120d0c', borderTop: '1px solid #4d3228' }}>
           <div className="shell py-14">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14 pb-12 border-b border-[#E5C7B5]/20">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14 pb-10" style={{ borderBottom: '1px solid #30221e' }}>
               <div className="md:col-span-5 space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[#16463D] border border-[#E5C7B5]/40 flex items-center justify-center font-display text-lg text-[#E8A27A]">
-                    CS
+                  <div className="w-[74px] h-[74px] rounded-full flex items-center justify-center font-display text-lg text-white" style={{ border: '2px solid #d15b3e' }}>
+                    <span className="font-black text-2xl" style={{ fontFamily: 'Barlow Condensed, sans-serif', letterSpacing: '1px' }}>CS</span>
                   </div>
                   <div>
-                    <span className="font-display text-xl text-[#FEEFE8] font-semibold tracking-wide block">Coastal Swada</span>
-                    <span className="text-xs text-[#E8A27A] font-medium tracking-wider" style={{ fontFamily: "'Noto Serif Kannada', serif" }}>ಕರಾವಳಿ ಕುಟುಂಬ ರೆಸ್ಟಾರೆಂಟ್</span>
+                    <span className="font-display block" style={{ fontFamily: 'Barlow Condensed, sans-serif', fontSize: '30px', fontWeight: 900, letterSpacing: '1px', color: '#fff5e8' }}>Coastal Swada</span>
+                    <span className="text-xs font-medium tracking-wider" style={{ color: '#c2a99e', fontFamily: "'Noto Sans Kannada', sans-serif" }}>ಕರಾವಳಿ ಕುಟುಂಬ ರೆಸ್ಟಾರೆಂಟ್</span>
                   </div>
                 </div>
-                <p className="text-sm text-[#EEDBD0]/80 leading-relaxed pr-4">
+                <p style={{ fontSize: '12px', color: '#baa596', maxWidth: '365px', marginTop: '17px' }}>
                   Authentic Karavali &amp; Mangalorean coastal dining. Slow-roasted ghee roasts, fresh fish curry, feather-light neer dosa, and the heartwarming hospitality of the western shore.
-                </p>
-                <p className="text-sm text-[#E8A27A] italic font-medium pt-1" style={{ fontFamily: "'Noto Serif Kannada', serif" }}>
-                  "ಸಂಸ್ಕೃತಿಯಲ್ಲಿ ಶ್ರೀಮಂತ, ರುಚಿಯಲ್ಲಿ ಅನನ್ಯ — ನಮ್ಮ ಹೆಮ್ಮೆಯ ಕರಾವಳಿ!"
                 </p>
               </div>
 
               <div className="md:col-span-4 space-y-3">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#E8A27A] block mb-2">Direct Contact &amp; Orders</span>
-                <div className="space-y-2.5 text-sm text-[#EEDBD0]">
+                <h4 style={{ margin: '0 0 13px', color: '#f5d6c4', fontSize: '14px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px' }}>Direct Contact &amp; Orders</h4>
+                <div className="space-y-2.5">
                   <div className="flex items-center gap-2.5">
-                    <Phone size={15} className="text-[#E8A27A] shrink-0" />
-                    <span>Call Us: </span>
-                    <a href="tel:+919538596072" className="text-[#FEEFE8] font-semibold hover:text-[#E8A27A] transition-colors">
+                    <Phone size={15} style={{ color: '#ff9f7d' }} className="shrink-0" />
+                    <a href="tel:+919538596072" style={{ color: '#ccb5a4', fontSize: '13px', padding: '5px 0', display: 'block' }} className="hover:text-[#ff9f7d] transition-colors no-underline">
                       +91 95385 96072
                     </a>
                   </div>
                   <div className="flex items-center gap-2.5">
-                    <MessageCircle size={15} className="text-[#25D366] shrink-0" />
-                    <span>WhatsApp: </span>
+                    <MessageCircle size={15} style={{ color: '#25d366' }} className="shrink-0" />
                     <a
-                      href="https://wa.me/919538596072"
+                      href={DEFAULT_WHATSAPP_LINK}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#25D366] font-semibold hover:underline inline-flex items-center gap-1"
+                      style={{ color: '#25d366', fontSize: '13px', padding: '5px 0', display: 'inline-flex', alignItems: 'center', gap: '4px' }}
+                      className="hover:underline no-underline"
                     >
                       +91 95385 96072 <ArrowUpRight size={13} />
                     </a>
                   </div>
                   <div className="flex items-start gap-2.5 pt-1">
-                    <Clock3 size={15} className="text-[#E8A27A] shrink-0 mt-0.5" />
-                    <span className="text-xs text-[#EEDBD0]/80">Kitchen Hours: 11:30 AM – 11:00 PM (Every Day)</span>
+                    <Clock3 size={15} style={{ color: '#ff9f7d' }} className="shrink-0 mt-0.5" />
+                    <span style={{ fontSize: '13px', color: '#ccb5a4', padding: '5px 0' }}>Kitchen Hours: 11:30 AM – 11:00 PM (Every Day)</span>
                   </div>
                   <div className="flex items-start gap-2.5">
-                    <MapPin size={15} className="text-[#E8A27A] shrink-0 mt-0.5" />
-                    <span className="text-xs text-[#EEDBD0]/80">Karavali Heritage Kitchen · Coastal Karnataka Dining</span>
+                    <MapPin size={15} style={{ color: '#ff9f7d' }} className="shrink-0 mt-0.5" />
+                    <span style={{ fontSize: '13px', color: '#ccb5a4', padding: '5px 0' }}>Karavali Heritage Kitchen · Coastal Karnataka</span>
                   </div>
                 </div>
               </div>
 
               <div className="md:col-span-3 space-y-4">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#E8A27A] block mb-2">Honest Pricing</span>
-                <div className="p-4 rounded-xl bg-[#123D36]/80 border border-[#E5C7B5]/30 space-y-2">
-                  <div className="flex items-center gap-2 text-xs font-semibold text-[#FEEFE8]">
-                    <Check size={14} className="text-[#25D366]" /> Zero Platform Fee
+                <h4 style={{ margin: '0 0 13px', color: '#f5d6c4', fontSize: '14px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px' }}>Honest Pricing</h4>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2" style={{ fontSize: '13px', color: '#ccb5a4' }}>
+                    <Check size={14} style={{ color: '#29c16b' }} /> Zero Platform Fee
                   </div>
-                  <div className="flex items-center gap-2 text-xs font-semibold text-[#FEEFE8]">
-                    <Check size={14} className="text-[#25D366]" /> Zero Packaging Fee
+                  <div className="flex items-center gap-2" style={{ fontSize: '13px', color: '#ccb5a4' }}>
+                    <Check size={14} style={{ color: '#29c16b' }} /> Zero Packaging Fee
                   </div>
-                  <div className="flex items-center gap-2 text-xs font-semibold text-[#FEEFE8]">
-                    <Check size={14} className="text-[#25D366]" /> Only Food Amount
+                  <div className="flex items-center gap-2" style={{ fontSize: '13px', color: '#ccb5a4' }}>
+                    <Check size={14} style={{ color: '#29c16b' }} /> Only Food Amount
                   </div>
                 </div>
                 <a
-                  href="https://wa.me/919538596072"
+                  href={DEFAULT_WHATSAPP_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-full bg-[#25D366] text-[#0A2621] font-bold text-xs hover:bg-[#20ba59] transition-all no-underline shadow-md"
+                  className="inline-flex items-center justify-center gap-2 w-full no-underline"
+                  style={{ padding: '10px 16px', borderRadius: '8px', background: '#25d366', color: '#07180b', fontWeight: 900, fontSize: '13px' }}
                 >
                   <MessageCircle size={15} /> Order on WhatsApp
                 </a>
               </div>
             </div>
 
-            <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#EEDBD0]/60">
-              <span>&copy; {new Date().getFullYear()} Coastal Swada · ಕರಾವಳಿ ಕುಟುಂಬ ರೆಸ್ಟಾರೆಂಟ್. All rights reserved.</span>
+            <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderTop: '1px solid #30221e', marginTop: '35px', paddingTop: '15px' }}>
+              <span style={{ color: '#987f71', fontSize: '11px' }}>&copy; {new Date().getFullYear()} Coastal Swada · <strong style={{ color: '#d5b19c' }}>ಕರಾವಳಿ ಕುಟುಂಬ ರೆಸ್ಟಾರೆಂಟ್</strong></span>
               <div className="flex items-center gap-6">
-                <a href="#menu" className="hover:text-[#E8A27A] transition-colors no-underline">Menu</a>
-                <span className="opacity-40">·</span>
-                <Link href="/location" className="hover:text-[#E8A27A] transition-colors no-underline">Delivery Area</Link>
-                <span className="opacity-40">·</span>
-                <a href="https://wa.me/919538596072" target="_blank" rel="noopener noreferrer" className="hover:text-[#E8A27A] transition-colors no-underline">Contact (+91 95385 96072)</a>
-                <span className="opacity-40">·</span>
+                <a href="#menu" style={{ color: '#ccb5a4', fontSize: '13px' }} className="hover:text-[#ff9f7d] transition-colors no-underline">Menu</a>
+                <span style={{ opacity: 0.4, color: '#ccb5a4' }}>·</span>
+                <Link href="/location" style={{ color: '#ccb5a4', fontSize: '13px' }} className="hover:text-[#ff9f7d] transition-colors no-underline">Delivery Area</Link>
+                <span style={{ opacity: 0.4, color: '#ccb5a4' }}>·</span>
+                <a href={DEFAULT_WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" style={{ color: '#ccb5a4', fontSize: '13px' }} className="hover:text-[#ff9f7d] transition-colors no-underline">Contact</a>
+                <span style={{ opacity: 0.4, color: '#ccb5a4' }}>·</span>
                 {/* Secret discrete lock button in footer */}
-                <Link href="/admin" className="opacity-20 hover:opacity-100 transition-opacity p-1 text-[#EEDBD0] hover:text-[#C6A56A]" title="Staff Portal" aria-label="Staff Portal" data-testid="secret-footer-owner-btn">
+                <Link href="/admin" className="opacity-20 hover:opacity-100 transition-opacity p-1" style={{ color: '#ccb5a4' }} title="Staff Portal" aria-label="Staff Portal" data-testid="secret-footer-owner-btn">
                   <Lock size={12}/>
                 </Link>
               </div>
@@ -286,7 +282,7 @@ function Home({ cart, changeQuantity, products: homeProducts, onReplayIntro }: {
           <div className="flex flex-wrap items-center gap-3 mt-7">
             <a href="#menu" className={`${primaryClass} no-underline`} data-testid="button-explore-menu">Explore the menu <ArrowDown size={16}/></a>
             <a
-              href="https://wa.me/919538596072"
+              href={DEFAULT_WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
               className={`${secondaryClass} gap-2 no-underline`}
@@ -381,23 +377,23 @@ function Home({ cart, changeQuantity, products: homeProducts, onReplayIntro }: {
       })}</div> : <div className="empty-search border-[#E6DFD2]"><Search size={24}/><h3 className="font-display">Nothing on this plate.</h3><p>Try a different search or browse all dishes.</p><button className={secondaryClass} onClick={() => { setQuery(''); setCategory('All'); setOnlyVeg(false); }} data-testid="button-reset-menu">Reset menu</button></div>}
     </section>
     <section className="shell py-6 my-2 text-center">
-      <p className="text-lg sm:text-xl text-[#123D36] font-medium tracking-wide" style={{ fontFamily: "'Noto Serif Kannada', serif" }}>
+      <p className="text-lg sm:text-xl font-medium tracking-wide" style={{ color: '#f5d6c4', fontFamily: "'Noto Serif Kannada', serif" }}>
         "ಪ್ರತಿ ತುತ್ತಿನಲ್ಲೂ ಕರಾವಳಿಯ ಸವಿ."
       </p>
-      <div className="w-16 h-0.5 mx-auto mt-3 bg-[#C6A56A]/60 rounded-full" />
+      <div className="w-16 h-0.5 mx-auto mt-3 rounded-full" style={{ background: '#df4929' }} />
     </section>
-    <section className="recommend-strip bg-[#123D36]">
+    <section className="recommend-strip" style={{ background: 'linear-gradient(135deg, #251b17 0%, #17100e 100%)', borderTop: '1px solid #433029', borderBottom: '1px solid #433029' }}>
       <div className="shell recommend-inner">
         <div>
-          <div className="eyebrow light"><span className="eyebrow-line" style={{ background: '#C6A56A' }}/> A LITTLE SOMETHING EXTRA</div>
-          <h2 className="font-display">Good things<br/>go <em>together.</em></h2>
-          <p>A cool kokum pour beside a spicy roast. That’s the authentic Karavali pairing.</p>
+          <div className="eyebrow light"><span className="eyebrow-line" style={{ background: '#df4929' }}/> A LITTLE SOMETHING EXTRA</div>
+          <h2 className="font-display" style={{ color: '#fff5e8' }}>Good things<br/>go <em>together.</em></h2>
+          <p style={{ color: '#ccb5a4' }}>A cool kokum pour beside a spicy roast. That’s the authentic Karavali pairing.</p>
         </div>
-        <div className="recommend-item" style={{ borderColor: '#C6A56A60', background: 'rgba(18, 61, 54, 0.75)' }}>
+        <div className="recommend-item" style={{ borderColor: '#433029', background: '#211814' }}>
           <img src="/chicken-ghee-roast.jpg" alt="Chicken ghee roast" loading="lazy" onError={handleFoodImageError}/>
-          <span style={{ color: '#C6A56A' }}>RECOMMENDED PAIRING</span>
-          <strong className="font-display text-[#FAF6ED]" style={{ fontFamily: "'Noto Serif Kannada', serif" }}>ಚಿಕನ್ ಗೀ ರೋಸ್ಟ್</strong>
-          <button className="recommend-link" onClick={() => changeQuantity('chicken-ghee-roast',1)} data-testid="button-add-recommended">Add to your bag <Plus size={15}/></button>
+          <span style={{ color: '#fbb386' }}>RECOMMENDED PAIRING</span>
+          <strong className="font-display" style={{ color: '#fff5e8', fontFamily: "'Noto Serif Kannada', serif" }}>ಚಿಕನ್ ಗೀ ರೋಸ್ಟ್</strong>
+          <button className="recommend-link" style={{ background: '#df4929', color: '#ffffff' }} onClick={() => changeQuantity('chicken-ghee-roast',1)} data-testid="button-add-recommended">Add to your bag <Plus size={15}/></button>
         </div>
       </div>
     </section>
@@ -507,45 +503,45 @@ function QuickOrderModal({ summary, prefillCustomer, prefillAddress, onConfirm, 
   };
   const onBackdrop = (e: React.MouseEvent<HTMLDivElement>) => { if (e.target === e.currentTarget) onClose(); };
   return (
-    <div onClick={onBackdrop} style={{ position:'fixed',inset:0,zIndex:100,background:'rgba(0,0,0,0.82)',backdropFilter:'blur(6px)',display:'flex',alignItems:'flex-end',justifyContent:'center' }} role="dialog" aria-modal="true">
-      <div style={{ width:'100%',maxWidth:'520px',background:'#1b1513',border:'1px solid #43302a',borderBottom:'none',borderRadius:'24px 24px 0 0',boxShadow:'0 -16px 60px rgba(0,0,0,0.6)',animation:'rise-in .35s ease both',maxHeight:'90dvh',overflowY:'auto' }}>
-        <div style={{ display:'flex',alignItems:'center',justifyContent:'space-between',padding:'20px 22px 14px',borderBottom:'1px solid #43302a',position:'sticky',top:0,background:'#1b1513',zIndex:1,borderRadius:'24px 24px 0 0' }}>
-          <div><div style={{ fontSize:'9px',fontWeight:700,letterSpacing:'.18em',color:'#f24b26',marginBottom:'3px' }}>ALMOST THERE</div><h2 style={{ margin:0,fontSize:'20px',fontWeight:600,color:'#fff5e8',fontFamily:'var(--app-font-serif)' }}>Your order details</h2></div>
-          <button onClick={onClose} aria-label="Close" style={{ border:'1px solid #43302a',background:'#241a17',borderRadius:'50%',width:'34px',height:'34px',display:'grid',placeItems:'center',cursor:'pointer',color:'#bba99d' }}><X size={17}/></button>
+    <div onClick={onBackdrop} style={{ position:'fixed',inset:0,zIndex:100,background:'rgba(0,0,0,0.85)',backdropFilter:'blur(6px)',display:'flex',alignItems:'flex-end',justifyContent:'center' }} role="dialog" aria-modal="true">
+      <div style={{ width:'100%',maxWidth:'520px',background:'#221713',border:'1px solid #91472b',borderBottom:'none',borderRadius:'17px 17px 0 0',boxShadow:'0 -16px 60px rgba(0,0,0,0.6)',animation:'rise-in .35s ease both',maxHeight:'90dvh',overflowY:'auto' }}>
+        <div style={{ display:'flex',alignItems:'center',justifyContent:'space-between',padding:'20px 22px 14px',borderBottom:'1px solid #573a2f',position:'sticky',top:0,background:'#221713',zIndex:1,borderRadius:'17px 17px 0 0' }}>
+          <div><div style={{ fontSize:'9px',fontWeight:900,letterSpacing:'2.2px',color:'#fbb386',marginBottom:'3px',textTransform:'uppercase' }}>ALMOST THERE</div><h2 style={{ margin:0,fontSize:'22px',fontWeight:900,color:'#fff5e8',fontFamily:'Barlow Condensed, sans-serif' }}>Your order details</h2></div>
+          <button onClick={onClose} aria-label="Close" style={{ border:0,background:'#38251e',borderRadius:'7px',width:'35px',height:'35px',display:'grid',placeItems:'center',cursor:'pointer',color:'white',fontSize:'22px' }}><X size={17}/></button>
         </div>
-        <div style={{ margin:'14px 22px 4px',padding:'12px 16px',background:'linear-gradient(135deg,#241a17 0%,#1b1513 100%)',border:'1px solid #43302a',borderRadius:'14px',color:'#fff5e8' }}>
-          <div style={{ fontSize:'10px',color:'#ff8b48',fontWeight:700,letterSpacing:'.12em',marginBottom:'6px' }}>YOUR ORDER · {summary.items.length} {summary.items.length===1?'item':'items'}</div>
-          {summary.items.slice(0,3).map(({productId,quantity})=>{const p=products.find(x=>x.id===productId);return p?<div key={productId} style={{ fontSize:'12px',color:'#bba99d',display:'flex',justifyContent:'space-between',marginBottom:'2px' }}><span>{p.name} × {quantity}</span><span style={{ color:'#ff8b48' }}>{money(p.price*quantity)}</span></div>:null;})}
-          {summary.items.length>3&&<div style={{ fontSize:'11px',color:'#f9c778' }}>+{summary.items.length-3} more item{summary.items.length-3>1?'s':''}</div>}
-          <div style={{ marginTop:'8px',paddingTop:'8px',borderTop:'1px solid #43302a',display:'flex',justifyContent:'space-between',fontWeight:700,fontSize:'14px' }}><span>Total</span><span style={{ color:'#ff8b48' }}>{money(summary.grandTotal)}</span></div>
+        <div style={{ margin:'14px 22px 4px',padding:'12px 16px',background:'rgba(93,37,20,.85)',border:'1px solid #b76442',borderRadius:'7px',color:'#ffd8aa',fontSize:'12px' }}>
+          <div style={{ fontSize:'10px',color:'#ff8b48',fontWeight:900,letterSpacing:'1.2px',marginBottom:'6px',textTransform:'uppercase' }}>YOUR ORDER · {summary.items.length} {summary.items.length===1?'item':'items'}</div>
+          {summary.items.slice(0,3).map(({productId,quantity})=>{const p=products.find(x=>x.id===productId);return p?<div key={productId} style={{ fontSize:'12px',color:'#dbc4b6',display:'flex',justifyContent:'space-between',marginBottom:'2px' }}><span>{p.name} × {quantity}</span><span style={{ color:'#ffe1a4',fontFamily:'Barlow Condensed, sans-serif',fontWeight:900,fontSize:'16px' }}>{money(p.price*quantity)}</span></div>:null;})}
+          {summary.items.length>3&&<div style={{ fontSize:'11px',color:'#f9bd8c' }}>+{summary.items.length-3} more item{summary.items.length-3>1?'s':''}</div>}
+          <div style={{ marginTop:'8px',paddingTop:'8px',borderTop:'1px solid #573a2f',display:'flex',justifyContent:'space-between',fontWeight:900 }}><span style={{ color:'#ffe5d3',fontSize:'13px' }}>Total</span><span style={{ color:'#ffe1a4',fontFamily:'Barlow Condensed, sans-serif',fontSize:'24px' }}>{money(summary.grandTotal)}</span></div>
         </div>
         <form onSubmit={submit} style={{ padding:'8px 22px 28px',display:'grid',gap:'14px' }}>
           <div>
-            <div style={{ fontSize:'11px',fontWeight:700,color:'#fff5e8',marginBottom:'8px' }}>Order type</div>
+            <div style={{ fontSize:'11px',fontWeight:900,color:'#ffe5d3',marginBottom:'8px',letterSpacing:'1px',textTransform:'uppercase' }}>Order type</div>
             <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:'8px' }}>
               {(['pickup','delivery'] as const).map(type=>(
-                <button key={type} type="button" onClick={()=>setOrderType(type)} style={{ padding:'12px 8px',border:`2px solid ${orderType===type?'#f24b26':'#43302a'}`,borderRadius:'12px',background:orderType===type?'#f24b26':'#241a17',color:orderType===type?'#ffffff':'#bba99d',fontWeight:700,fontSize:'12px',cursor:'pointer',transition:'all .2s',display:'flex',flexDirection:'column',alignItems:'center',gap:'4px' }}>
+                <button key={type} type="button" onClick={()=>setOrderType(type)} style={{ padding:'12px 8px',border:`2px solid ${orderType===type?'#f24b26':'#62453a'}`,borderRadius:'12px',background:orderType===type?'#f24b26':'#150f0e',color:orderType===type?'#ffffff':'#dbc4b6',fontWeight:900,fontSize:'12px',cursor:'pointer',transition:'all .2s',display:'flex',flexDirection:'column',alignItems:'center',gap:'4px' }}>
                   <span style={{ fontSize:'18px' }}>{type==='pickup'?'🛍️':'🛵'}</span>
                   <span>{type==='pickup'?'Pickup / ಪಾರ್ಸೆಲ್':'Delivery / ಡೆಲಿವರಿ'}</span>
                 </button>
               ))}
             </div>
           </div>
-          <label style={{ display:'grid',gap:'6px',fontSize:'11px',fontWeight:700,color:'#fff5e8' }}>Your name *<input className={fieldClass} value={name} onChange={e=>setName(e.target.value)} placeholder="e.g. Pavan Kumar" required data-testid="input-quick-name"/></label>
-          <label style={{ display:'grid',gap:'6px',fontSize:'11px',fontWeight:700,color:'#fff5e8' }}>Mobile number *<input className={fieldClass} value={phone} onChange={e=>setPhone(e.target.value)} type="tel" inputMode="tel" placeholder="+91 98765 43210" required data-testid="input-quick-phone"/></label>
+          <label style={{ display:'grid',gap:'6px',fontSize:'11px',fontWeight:900,color:'#ffe5d3',textTransform:'uppercase',letterSpacing:'1px' }}>Your name *<input className={fieldClass} value={name} onChange={e=>setName(e.target.value)} placeholder="e.g. Pavan Kumar" required data-testid="input-quick-name"/></label>
+          <label style={{ display:'grid',gap:'6px',fontSize:'11px',fontWeight:900,color:'#ffe5d3',textTransform:'uppercase',letterSpacing:'1px' }}>Mobile number *<input className={fieldClass} value={phone} onChange={e=>setPhone(e.target.value)} type="tel" inputMode="tel" placeholder="+91 98765 43210" required data-testid="input-quick-phone"/></label>
           {orderType==='delivery'&&<>
-            <label style={{ display:'grid',gap:'6px',fontSize:'11px',fontWeight:700,color:'#fff5e8' }}>House / street address *<input className={fieldClass} value={addrLine1} onChange={e=>setAddrLine1(e.target.value)} placeholder="House no., street, area" required data-testid="input-quick-line1"/></label>
-            <label style={{ display:'grid',gap:'6px',fontSize:'11px',fontWeight:700,color:'#fff5e8' }}>Landmark <span style={{ fontWeight:400,color:'#bba99d' }}>Optional</span><input className={fieldClass} value={addrLandmark} onChange={e=>setAddrLandmark(e.target.value)} placeholder="Near bus stand, temple..." data-testid="input-quick-landmark"/></label>
+            <label style={{ display:'grid',gap:'6px',fontSize:'11px',fontWeight:900,color:'#ffe5d3',textTransform:'uppercase',letterSpacing:'1px' }}>House / street address *<input className={fieldClass} value={addrLine1} onChange={e=>setAddrLine1(e.target.value)} placeholder="House no., street, area" required data-testid="input-quick-line1"/></label>
+            <label style={{ display:'grid',gap:'6px',fontSize:'11px',fontWeight:900,color:'#ffe5d3',textTransform:'uppercase',letterSpacing:'1px' }}>Landmark <span style={{ fontWeight:400,color:'#c2a895',textTransform:'none' }}>Optional</span><input className={fieldClass} value={addrLandmark} onChange={e=>setAddrLandmark(e.target.value)} placeholder="Near bus stand, temple..." data-testid="input-quick-landmark"/></label>
             <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:'12px' }}>
-              <label style={{ display:'grid',gap:'6px',fontSize:'11px',fontWeight:700,color:'#fff5e8' }}>City *<input className={fieldClass} value={addrCity} onChange={e=>setAddrCity(e.target.value)} placeholder="Udupi" required data-testid="input-quick-city"/></label>
-              <label style={{ display:'grid',gap:'6px',fontSize:'11px',fontWeight:700,color:'#fff5e8' }}>PIN code<input className={fieldClass} value={addrPin} onChange={e=>setAddrPin(e.target.value)} inputMode="numeric" placeholder="576101" data-testid="input-quick-pin"/></label>
+              <label style={{ display:'grid',gap:'6px',fontSize:'11px',fontWeight:900,color:'#ffe5d3',textTransform:'uppercase',letterSpacing:'1px' }}>City *<input className={fieldClass} value={addrCity} onChange={e=>setAddrCity(e.target.value)} placeholder="Udupi" required data-testid="input-quick-city"/></label>
+              <label style={{ display:'grid',gap:'6px',fontSize:'11px',fontWeight:900,color:'#ffe5d3',textTransform:'uppercase',letterSpacing:'1px' }}>PIN code<input className={fieldClass} value={addrPin} onChange={e=>setAddrPin(e.target.value)} inputMode="numeric" placeholder="576101" data-testid="input-quick-pin"/></label>
             </div>
           </>}
           {err&&<p style={{ margin:0,padding:'10px 13px',background:'rgba(242,75,38,0.12)',border:'1px solid #f24b26',borderRadius:'10px',color:'#ff8b48',fontSize:'12px' }} role="alert">{err}</p>}
-          <button type="submit" disabled={busy} style={{ display:'flex',alignItems:'center',justifyContent:'center',gap:'8px',width:'100%',padding:'15px',borderRadius:'99px',background:'#f24b26',color:'#ffffff',fontWeight:700,fontSize:'14px',border:0,cursor:busy?'not-allowed':'pointer',opacity:busy?0.7:1,boxShadow:'0 4px 16px rgba(242,75,38,0.35)' }} data-testid="button-quick-order-submit">
+          <button type="submit" disabled={busy} style={{ display:'flex',alignItems:'center',justifyContent:'center',gap:'8px',width:'100%',padding:'15px',borderRadius:'8px',background:'#f24b26',color:'#ffffff',fontWeight:900,fontSize:'14px',border:0,cursor:busy?'not-allowed':'pointer',opacity:busy?0.7:1,boxShadow:'0 7px 25px rgba(242,75,38,0.35)' }} data-testid="button-quick-order-submit">
             {busy?'Opening WhatsApp…':<><MessageCircle size={18}/> Send order on WhatsApp</>}
           </button>
-          <p style={{ margin:0,textAlign:'center',fontSize:'10px',color:'#bba99d' }}>Sends directly to +91 95385 96072 · ⚠️ Prices are demo — confirm with restaurant</p>
+          <p style={{ margin:0,textAlign:'center',fontSize:'10px',color:'#f9bd8c',fontWeight:700 }}>Sends directly to +91 95385 96072 · ⚠️ Prices are demo — confirm with restaurant</p>
         </form>
       </div>
     </div>
