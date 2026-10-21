@@ -742,8 +742,8 @@
   50% { opacity: 0.95; transform: scale3d(1.08, 1.08, 1); }
 }
 @keyframes glow {
-  0%, 100% { filter: drop-shadow(0 0 12px rgba(198, 165, 106, 0.4)); opacity: 0.9; }
-  50% { filter: drop-shadow(0 0 24px rgba(198, 165, 106, 0.75)); opacity: 1; }
+  0%, 100% { filter: drop-shadow(0 0 12px rgba(242, 75, 38, 0.45)); opacity: 0.9; }
+  50% { filter: drop-shadow(0 0 24px rgba(242, 75, 38, 0.8)); opacity: 1; }
 }
 @keyframes spin-slow {
   from { transform: rotate(0deg); }

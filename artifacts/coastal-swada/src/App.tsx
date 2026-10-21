@@ -67,12 +67,9 @@ function App() {
   const summary = useMemo(() => calculateOrder(cart, productsList), [cart, productsList]);
 
   const handleIntroComplete = () => {
-    setIsIntroExiting(true);
     sessionStorage.setItem('coastal_swada_intro_seen', 'true');
-    window.setTimeout(() => {
-      setShowIntro(false);
-      setIsIntroExiting(false);
-    }, 700);
+    setShowIntro(false);
+    setIsIntroExiting(false);
   };
 
   const handleReplayIntro = () => {
@@ -106,12 +103,12 @@ function App() {
 
       <div className="min-h-[100dvh] bg-[#100d0c] text-[#fff5e8] selection:bg-[#43302a] selection:text-[#ff8b48]">
         <header className="sticky top-0 z-40 border-b border-white/[0.08] bg-[#100d0c]/96 backdrop-blur-md transition-colors">
-          <div className="shell flex h-[76px] items-center justify-between">
-            <Link href="/" className="flex items-center gap-3 no-underline group" data-testid="link-brand">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-[#f24b26] text-white shadow-[0_0_0_2px_#e95531,0_0_20px_#a433241f] transition-transform group-hover:scale-105"><Utensils size={18}/></span>
+          <div className="shell flex h-[70px] sm:h-[76px] items-center justify-between">
+            <Link href="/" className="flex items-center gap-2 sm:gap-3 no-underline group shrink-0" data-testid="link-brand">
+              <span className="grid h-9 w-9 sm:h-10 sm:w-10 place-items-center rounded-full bg-[#f24b26] text-white shadow-[0_0_0_2px_#e95531,0_0_20px_#a433241f] transition-transform group-hover:scale-105"><Utensils size={17}/></span>
               <span className="leading-none">
-                <strong className="font-display text-[26px] font-black tracking-[0.5px] text-[#fff] uppercase" style={{fontFamily:'Barlow Condensed,sans-serif'}}>COASTAL SWADA</strong>
-                <small className="mt-0.5 block text-[9px] font-extrabold uppercase tracking-[1.25px] text-[#c2a99e]">ಕರಾವಳಿ ಕುಟುಂಬ ರೆಸ್ಟಾರೆಂಟ್</small>
+                <strong className="font-display text-[20px] sm:text-[26px] font-black tracking-[0.5px] text-[#fff] uppercase" style={{fontFamily:'Barlow Condensed,sans-serif'}}>COASTAL SWADA</strong>
+                <small className="mt-0.5 block text-[8px] sm:text-[9px] font-extrabold uppercase tracking-[0.8px] sm:tracking-[1.25px] text-[#c2a99e]">ಕರಾವಳಿ ಕುಟುಂಬ ರೆಸ್ಟಾರೆಂಟ್</small>
               </span>
             </Link>
             <Link href="/location" className="header-location" data-testid="link-header-location">
