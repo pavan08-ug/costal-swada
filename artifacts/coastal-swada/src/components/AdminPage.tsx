@@ -358,27 +358,27 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
   if (!isAuthenticated) {
     return (
       <div className="min-h-[85vh] flex items-center justify-center px-4 py-12">
-        <div className="w-full max-w-md bg-[#FAF4EA] border border-[#D8C7B3] rounded-3xl p-8 sm:p-10 shadow-xl relative overflow-hidden">
-          <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#0E352E] via-[#C85A32] to-[#C6A56A]" />
+        <div className="w-full max-w-md bg-[#1b1513] border border-[#43302a] rounded-3xl p-8 sm:p-10 shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#f24b26] via-[#ff8b48] to-[#f9c778]" />
           
           <div className="text-center mb-8">
-            <div className="w-16 h-16 rounded-full bg-[#0E352E] text-[#C6A56A] border border-[#C6A56A]/40 flex items-center justify-center mx-auto mb-4 shadow-md">
+            <div className="w-16 h-16 rounded-full bg-[#f24b26] text-white border border-[#f24b26]/40 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-[#f24b26]/20">
               <Lock size={28} />
             </div>
-            <div className="text-[10px] font-bold uppercase tracking-[.2em] text-[#C85A32] mb-1">
+            <div className="text-[10px] font-bold uppercase tracking-[.2em] text-[#f24b26] mb-1">
               RESTAURANT PORTAL · ಮಾಲೀಕರ ನಿಯಂತ್ರಣ
             </div>
-            <h1 className="text-2xl sm:text-3xl font-display font-semibold text-[#0E352E]">
+            <h1 className="text-2xl sm:text-3xl font-display font-semibold text-[#fff5e8]">
               Owner Dashboard
             </h1>
-            <p className="text-xs text-[#6E726B] mt-1.5">
+            <p className="text-xs text-[#bba99d] mt-1.5">
               Enter your Owner PIN to manage dish availability and menu items.
             </p>
           </div>
 
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
-              <label className="block text-xs font-bold text-[#252B27] mb-1.5">
+              <label className="block text-xs font-bold text-[#fff5e8] mb-1.5">
                 Owner PIN / ಪಾಸ್‌ವರ್ಡ್
               </label>
               <div className="relative">
@@ -388,39 +388,39 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
                   value={pinInput}
                   onChange={(e) => setPinInput(e.target.value)}
                   placeholder="Enter 4-digit PIN"
-                  className="w-full rounded-xl border border-[#D8C7B3] bg-white px-4 py-3.5 text-base text-[#252B27] outline-none transition focus:border-[#0E352E] focus:ring-2 focus:ring-[#0E352E]/10"
+                  className="w-full rounded-xl border border-[#43302a] bg-[#241a17] px-4 py-3.5 text-base text-[#fff5e8] outline-none transition focus:border-[#f24b26] focus:ring-2 focus:ring-[#f24b26]/20"
                   autoFocus
                   required
                 />
                 <button
                   type="button"
                   onClick={() => setShowPin(!showPin)}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#6E726B] hover:text-[#0E352E]"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#bba99d] hover:text-[#f24b26]"
                   aria-label={showPin ? 'Hide PIN' : 'Show PIN'}
                 >
                   {showPin ? <EyeOff size={18} /> : <Eye size={18} />}
                 </button>
               </div>
               {pinError && (
-                <p className="text-xs text-[#C85A32] mt-1.5 flex items-center gap-1 font-medium">
+                <p className="text-xs text-[#f24b26] mt-1.5 flex items-center gap-1 font-medium">
                   <AlertCircle size={14} /> {pinError}
                 </p>
               )}
-              <p className="text-[11px] text-[#6E726B] mt-2 bg-[#EFE6D8] p-2.5 rounded-lg border border-[#D8C7B3]/60">
-                💡 <strong>Owner default PIN:</strong> <code className="bg-white/80 px-1.5 py-0.5 rounded font-bold text-[#0E352E]">9538</code> (matches restaurant WhatsApp <span className="font-semibold">+91 95385 96072</span>)
+              <p className="text-[11px] text-[#bba99d] mt-2 bg-[#241a17] p-2.5 rounded-lg border border-[#43302a]">
+                💡 <strong>Owner default PIN:</strong> <code className="bg-[#1b1513] border border-[#43302a] px-1.5 py-0.5 rounded font-bold text-[#ff8b48]">9538</code> (matches restaurant WhatsApp <span className="font-semibold text-[#fff5e8]">+91 95385 96072</span>)
               </p>
             </div>
 
             <button
               type="submit"
-              className="w-full flex items-center justify-center gap-2 rounded-full bg-[#0E352E] py-3.5 text-sm font-semibold text-[#FAF4EA] transition hover:bg-[#17483F] shadow-md hover:shadow-lg"
+              className="w-full flex items-center justify-center gap-2 rounded-full bg-[#f24b26] py-3.5 text-sm font-semibold text-white transition hover:bg-[#d93f1d] shadow-lg shadow-[#f24b26]/25"
             >
               <ShieldCheck size={18} /> Unlock Dashboard
             </button>
           </form>
 
-          <div className="mt-6 pt-5 border-t border-[#D8C7B3] text-center">
-            <Link href="/" className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0E352E] hover:underline">
+          <div className="mt-6 pt-5 border-t border-[#43302a] text-center">
+            <Link href="/" className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#f24b26] hover:underline">
               <ArrowLeft size={14} /> Return to customer website
             </Link>
           </div>
@@ -435,24 +435,24 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
       <div className="shell">
         {/* Toast Notification */}
         {toast && (
-          <div className="fixed top-20 right-6 z-50 bg-[#0E352E] text-[#FAF4EA] px-5 py-3 rounded-xl shadow-xl flex items-center gap-2.5 text-sm font-medium border border-[#C6A56A]/40 animate-rise-in">
-            <Check size={18} className="text-[#C6A56A]" />
+          <div className="fixed top-20 right-6 z-50 bg-[#1b1513] text-[#fff5e8] px-5 py-3 rounded-xl shadow-2xl flex items-center gap-2.5 text-sm font-medium border border-[#f24b26]/50 animate-rise-in">
+            <Check size={18} className="text-[#f24b26]" />
             <span>{toast}</span>
           </div>
         )}
 
         {/* Top Header Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-6 pb-4 border-b border-[#D8C7B3]">
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-6 pb-4 border-b border-[#43302a]">
           <div>
             <div className="flex items-center gap-2.5">
-              <span className="w-8 h-8 rounded-full bg-[#0E352E] text-[#C6A56A] flex items-center justify-center text-sm font-bold shadow-sm">
+              <span className="w-8 h-8 rounded-full bg-[#f24b26] text-white flex items-center justify-center text-sm font-bold shadow-sm">
                 <ChefHat size={16} />
               </span>
-              <h1 className="text-2xl sm:text-3xl font-display font-semibold text-[#0E352E] m-0">
+              <h1 className="text-2xl sm:text-3xl font-display font-semibold text-[#fff5e8] m-0">
                 Menu &amp; Availability Manager
               </h1>
             </div>
-            <p className="text-xs text-[#6E726B] mt-1" style={{ fontFamily: "'Noto Serif Kannada', serif" }}>
+            <p className="text-xs text-[#bba99d] mt-1" style={{ fontFamily: "'Noto Serif Kannada', serif" }}>
               ಕರ್ನಾಟಕದ ಸಮಗ್ರ ಖಾದ್ಯಗಳ ನಿರ್ವಹಣೆ · ಲಭ್ಯತೆ ಬದಲಾಯಿಸಿ ಮತ್ತು ಹೊಸ ಖಾದ್ಯಗಳನ್ನು ಹುಡುಕಿ ಸೇರಿಸಿ
             </p>
           </div>
@@ -461,13 +461,13 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
             <Link
               href="/"
               target="_blank"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-[#D8C7B3] bg-[#FAF4EA] text-xs font-semibold text-[#0E352E] hover:border-[#0E352E] transition shadow-sm"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-[#43302a] bg-[#241a17] text-xs font-semibold text-[#fff5e8] hover:border-[#f24b26] transition shadow-sm"
             >
               <ExternalLink size={14} /> View Live Menu
             </Link>
             <button
               onClick={handleLogout}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-[#D8C7B3] bg-[#FAF4EA] text-xs font-semibold text-[#C85A32] hover:bg-[#F2E7D9] transition"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-[#43302a] bg-[#241a17] text-xs font-semibold text-[#f24b26] hover:bg-[#1b1513] transition"
             >
               <LogOut size={14} /> Logout
             </button>
@@ -476,49 +476,49 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
 
         {/* KPI Summary Cards */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-8">
-          <div className="bg-[#FAF4EA] border border-[#D8C7B3] rounded-2xl p-4 shadow-sm">
-            <div className="flex items-center justify-between text-[#6E726B] mb-2 text-xs font-semibold">
+          <div className="bg-[#1b1513] border border-[#43302a] rounded-2xl p-4 shadow-sm">
+            <div className="flex items-center justify-between text-[#bba99d] mb-2 text-xs font-semibold">
               <span>TOTAL DISHES</span>
-              <Package size={16} className="text-[#0E352E]" />
+              <Package size={16} className="text-[#ff8b48]" />
             </div>
-            <div className="text-3xl font-display font-bold text-[#0E352E]">
+            <div className="text-3xl font-display font-bold text-[#fff5e8]">
               {products.length}
             </div>
-            <div className="text-[10px] text-[#6E726B] mt-1">Full restaurant menu</div>
+            <div className="text-[10px] text-[#bba99d] mt-1">Full restaurant menu</div>
           </div>
 
-          <div className="bg-[#FAF4EA] border border-[#D8C7B3] rounded-2xl p-4 shadow-sm border-l-4 border-l-[#2A685D]">
-            <div className="flex items-center justify-between text-[#2A685D] mb-2 text-xs font-semibold">
+          <div className="bg-[#1b1513] border border-[#43302a] rounded-2xl p-4 shadow-sm border-l-4 border-l-[#25D366]">
+            <div className="flex items-center justify-between text-[#25D366] mb-2 text-xs font-semibold">
               <span>AVAILABLE NOW</span>
               <PackageCheck size={16} />
             </div>
-            <div className="text-3xl font-display font-bold text-[#2A685D]">
+            <div className="text-3xl font-display font-bold text-[#25D366]">
               {availableCount}
             </div>
-            <div className="text-[10px] text-[#6E726B] mt-1">Customers can order</div>
+            <div className="text-[10px] text-[#bba99d] mt-1">Customers can order</div>
           </div>
 
-          <div className="bg-[#FAF4EA] border border-[#D8C7B3] rounded-2xl p-4 shadow-sm border-l-4 border-l-[#C85A32]">
-            <div className="flex items-center justify-between text-[#C85A32] mb-2 text-xs font-semibold">
+          <div className="bg-[#1b1513] border border-[#43302a] rounded-2xl p-4 shadow-sm border-l-4 border-l-[#f24b26]">
+            <div className="flex items-center justify-between text-[#f24b26] mb-2 text-xs font-semibold">
               <span>SOLD OUT</span>
               <PackageX size={16} />
             </div>
-            <div className="text-3xl font-display font-bold text-[#C85A32]">
+            <div className="text-3xl font-display font-bold text-[#f24b26]">
               {unavailableCount}
             </div>
-            <div className="text-[10px] text-[#6E726B] mt-1">Temporarily disabled</div>
+            <div className="text-[10px] text-[#bba99d] mt-1">Temporarily disabled</div>
           </div>
 
-          <div className="bg-[#FAF4EA] border border-[#D8C7B3] rounded-2xl p-4 shadow-sm flex flex-col justify-between">
-            <div className="text-xs font-semibold text-[#6E726B] mb-1">
+          <div className="bg-[#1b1513] border border-[#43302a] rounded-2xl p-4 shadow-sm flex flex-col justify-between">
+            <div className="text-xs font-semibold text-[#bba99d] mb-1">
               WHATSAPP ORDERS
             </div>
-            <div className="text-sm font-bold text-[#0E352E] truncate">
+            <div className="text-sm font-bold text-[#ff8b48] truncate">
               +91 95385 96072
             </div>
             <button
               onClick={openDishSearch}
-              className="mt-2 w-full py-2 px-3 rounded-full bg-[#0E352E] text-white text-xs font-bold flex items-center justify-center gap-1.5 hover:bg-[#17483F] shadow-sm transition"
+              className="mt-2 w-full py-2 px-3 rounded-full bg-[#f24b26] text-white text-xs font-bold flex items-center justify-center gap-1.5 hover:bg-[#d93f1d] shadow-sm transition"
             >
               <Plus size={15} /> Add Dish
             </button>
@@ -526,22 +526,22 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
         </div>
 
         {/* Controls Bar: Search, Category, Status, Add Button */}
-        <div className="bg-[#FAF4EA] border border-[#D8C7B3] rounded-2xl p-4 sm:p-5 mb-6 shadow-sm space-y-4">
+        <div className="bg-[#1b1513] border border-[#43302a] rounded-2xl p-4 sm:p-5 mb-6 shadow-sm space-y-4">
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
             {/* Search Input for Menu Table */}
             <div className="relative flex-1">
-              <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#6E726B]" />
+              <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#bba99d]" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search dishes (e.g. Ghee Roast, Kori Rotti, ಮೀನು, Bisi Bele Bath...)"
-                className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-[#D8C7B3] bg-white text-xs text-[#252B27] outline-none transition focus:border-[#0E352E]"
+                className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-[#43302a] bg-[#241a17] text-xs text-[#fff5e8] placeholder-[#7a6059] outline-none transition focus:border-[#f24b26]"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#6E726B] hover:text-[#0E352E]"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#bba99d] hover:text-[#f24b26]"
                 >
                   <X size={14} />
                 </button>
@@ -549,7 +549,7 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
             </div>
 
             {/* Status Filter Tabs */}
-            <div className="flex items-center gap-1.5 p-1 bg-[#EAE0D0] rounded-xl self-start sm:self-auto">
+            <div className="flex items-center gap-1.5 p-1 bg-[#241a17] rounded-xl self-start sm:self-auto border border-[#43302a]">
               {(
                 [
                   { id: 'all', label: `All (${products.length})` },
@@ -562,8 +562,8 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
                   onClick={() => setAvailabilityFilter(tab.id)}
                   className={`px-3 py-1.5 rounded-lg text-xs font-bold transition ${
                     availabilityFilter === tab.id
-                      ? 'bg-[#FAF4EA] text-[#0E352E] shadow-sm'
-                      : 'text-[#6E726B] hover:text-[#0E352E]'
+                      ? 'bg-[#f24b26] text-white shadow-sm'
+                      : 'text-[#bba99d] hover:text-[#fff5e8]'
                   }`}
                 >
                   {tab.label}
@@ -574,7 +574,7 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
             {/* Add Dish Action Button — OPENS PURE SEARCH BAR! */}
             <button
               onClick={openDishSearch}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0E352E] px-5 py-2.5 text-xs font-bold text-[#FAF4EA] transition hover:bg-[#17483F] shadow-sm shrink-0"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#f24b26] px-5 py-2.5 text-xs font-bold text-white transition hover:bg-[#d93f1d] shadow-sm shrink-0"
             >
               <Plus size={16} /> Add New Dish
             </button>
@@ -582,15 +582,15 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
 
           {/* Category Filter Chips */}
           <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
-            <span className="text-[11px] font-bold text-[#6E726B] whitespace-nowrap">Category:</span>
+            <span className="text-[11px] font-bold text-[#bba99d] whitespace-nowrap">Category:</span>
             {allCategories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-3 py-1 rounded-full text-[11px] font-semibold whitespace-nowrap border transition ${
                   selectedCategory === cat
-                    ? 'bg-[#0E352E] text-white border-[#0E352E]'
-                    : 'bg-white border-[#D8C7B3] text-[#6E726B] hover:border-[#0E352E]'
+                    ? 'bg-[#f24b26] text-white border-[#f24b26]'
+                    : 'bg-[#241a17] border-[#43302a] text-[#bba99d] hover:border-[#f24b26]'
                 }`}
               >
                 {cat}
@@ -602,13 +602,13 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
         {/* Dishes List / Cards */}
         <div className="space-y-3">
           {filteredProducts.length === 0 ? (
-            <div className="bg-[#FAF4EA] border border-dashed border-[#D8C7B3] rounded-2xl p-12 text-center text-[#6E726B]">
-              <PackageX size={36} className="mx-auto mb-2 text-[#C85A32]" />
-              <p className="text-sm font-semibold text-[#0E352E]">No dishes found</p>
-              <p className="text-xs text-[#6E726B] mt-1">Try adjusting your search query or filters.</p>
+            <div className="bg-[#1b1513] border border-dashed border-[#43302a] rounded-2xl p-12 text-center text-[#bba99d]">
+              <PackageX size={36} className="mx-auto mb-2 text-[#f24b26]" />
+              <p className="text-sm font-semibold text-[#fff5e8]">No dishes found</p>
+              <p className="text-xs text-[#bba99d] mt-1">Try adjusting your search query or filters.</p>
               <button
                 onClick={openDishSearch}
-                className="mt-4 inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0E352E] text-white text-xs font-bold hover:bg-[#17483F]"
+                className="mt-4 inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#f24b26] text-white text-xs font-bold hover:bg-[#d93f1d]"
               >
                 <Plus size={14} /> Search &amp; Add Dishes
               </button>
@@ -617,13 +617,13 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
             filteredProducts.map((dish) => (
               <div
                 key={dish.id}
-                className={`bg-[#FAF4EA] border rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition shadow-sm hover:shadow-md ${
-                  dish.available ? 'border-[#D8C7B3]' : 'border-[#C85A32]/40 bg-[#FAF1EA]'
+                className={`bg-[#1b1513] border rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition shadow-sm hover:shadow-md ${
+                  dish.available ? 'border-[#43302a] hover:border-[#f24b26]/50' : 'border-[#f24b26]/40 bg-[#1b1513]'
                 }`}
               >
                 {/* Dish Info */}
                 <div className="flex items-start sm:items-center gap-3.5 flex-1 min-w-0">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden shrink-0 border border-[#D8C7B3] bg-white relative">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden shrink-0 border border-[#43302a] bg-[#241a17] relative">
                     <img
                       src={dish.image}
                       alt={dish.nameEn || dish.name}
@@ -633,8 +633,8 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
                       }}
                     />
                     {!dish.available && (
-                      <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
-                        <span className="text-[9px] font-bold text-white bg-[#C85A32] px-1.5 py-0.5 rounded uppercase tracking-wider">
+                      <div className="absolute inset-0 bg-black/70 flex items-center justify-center">
+                        <span className="text-[9px] font-bold text-white bg-[#f24b26] px-1.5 py-0.5 rounded uppercase tracking-wider">
                           SOLD OUT
                         </span>
                       </div>
@@ -643,51 +643,51 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
 
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-1.5 mb-1">
-                      <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-[#EFE6D8] text-[#0E352E] border border-[#D8C7B3]">
+                      <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-[#241a17] text-[#fff5e8] border border-[#43302a]">
                         {dish.category}
                       </span>
                       {dish.vegetarian ? (
-                        <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800">
+                        <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-950/60 text-emerald-400 border border-emerald-800/40">
                           🌱 Veg
                         </span>
                       ) : (
-                        <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-red-100 text-red-800">
+                        <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-red-950/60 text-red-400 border border-red-800/40">
                           🍗 Non-Veg
                         </span>
                       )}
                       {dish.spice > 0 && (
-                        <span className="text-[10px] text-[#C85A32] font-semibold">
+                        <span className="text-[10px] text-[#f24b26] font-semibold">
                           {'🌶️'.repeat(dish.spice)}
                         </span>
                       )}
                     </div>
 
-                    <h3 className="font-display text-base sm:text-lg font-bold text-[#0E352E] m-0 truncate" style={{ fontFamily: "'Noto Serif Kannada', serif" }}>
+                    <h3 className="font-display text-base sm:text-lg font-bold text-[#fff5e8] m-0 truncate" style={{ fontFamily: "'Noto Serif Kannada', serif" }}>
                       {dish.name}
-                      <span className="text-xs font-sans font-medium text-[#6E726B] ml-2">
+                      <span className="text-xs font-sans font-medium text-[#bba99d] ml-2">
                         ({dish.nameEn})
                       </span>
                     </h3>
 
-                    <p className="text-xs text-[#6E726B] line-clamp-1 mt-0.5 mb-1.5">
+                    <p className="text-xs text-[#bba99d] line-clamp-1 mt-0.5 mb-1.5">
                       {dish.description}
                     </p>
 
-                    <div className="text-sm font-bold text-[#0E352E]">
+                    <div className="text-sm font-bold text-[#ff8b48]">
                       {money(dish.price)}
                     </div>
                   </div>
                 </div>
 
                 {/* Controls: Availability Switch + Edit / Delete */}
-                <div className="flex items-center justify-between sm:justify-end gap-3 pt-3 sm:pt-0 border-t sm:border-t-0 border-[#D8C7B3]/60">
+                <div className="flex items-center justify-between sm:justify-end gap-3 pt-3 sm:pt-0 border-t sm:border-t-0 border-[#43302a]">
                   {/* Availability Toggle Button */}
                   <div className="flex items-center gap-2.5">
                     <button
                       type="button"
                       onClick={() => toggleAvailability(dish.id)}
                       className={`relative inline-flex h-8 w-14 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
-                        dish.available ? 'bg-[#0E352E]' : 'bg-[#C85A32]'
+                        dish.available ? 'bg-[#25D366]' : 'bg-[#f24b26]'
                       }`}
                       role="switch"
                       aria-checked={dish.available}
@@ -702,8 +702,8 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
                     <span
                       className={`text-xs font-bold px-2.5 py-1 rounded-full whitespace-nowrap ${
                         dish.available
-                          ? 'bg-[#E7F3EF] text-[#0E352E] border border-[#0E352E]/20'
-                          : 'bg-[#FBEAE3] text-[#C85A32] border border-[#C85A32]/30'
+                          ? 'bg-[#25D366]/15 text-[#25D366] border border-[#25D366]/30'
+                          : 'bg-[#f24b26]/15 text-[#f24b26] border border-[#f24b26]/30'
                       }`}
                     >
                       {dish.available ? '🟢 Available' : '🔴 Sold Out'}
@@ -714,7 +714,7 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
                   <div className="flex items-center gap-1.5">
                     <button
                       onClick={() => openEditModal(dish)}
-                      className="p-2 rounded-xl bg-white border border-[#D8C7B3] text-[#0E352E] hover:border-[#0E352E] transition"
+                      className="p-2 rounded-xl bg-[#241a17] border border-[#43302a] text-[#fff5e8] hover:border-[#f24b26] transition"
                       title="Edit dish details"
                       aria-label="Edit dish"
                     >
@@ -722,7 +722,7 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
                     </button>
                     <button
                       onClick={() => handleDelete(dish)}
-                      className="p-2 rounded-xl bg-white border border-[#D8C7B3] text-[#C85A32] hover:bg-[#FBEAE3] transition"
+                      className="p-2 rounded-xl bg-[#241a17] border border-[#43302a] text-[#f24b26] hover:bg-[#2a1a18] transition"
                       title="Delete dish"
                       aria-label="Delete dish"
                     >
@@ -736,12 +736,12 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
         </div>
 
         {/* Footer Reset & Helper */}
-        <div className="mt-10 p-5 bg-[#FAF4EA] border border-[#D8C7B3] rounded-2xl flex flex-wrap items-center justify-between gap-4">
+        <div className="mt-10 p-5 bg-[#1b1513] border border-[#43302a] rounded-2xl flex flex-wrap items-center justify-between gap-4">
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#0E352E] m-0">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#fff5e8] m-0">
               Need to restore original defaults?
             </h4>
-            <p className="text-xs text-[#6E726B] mt-0.5">
+            <p className="text-xs text-[#bba99d] mt-0.5">
               Reset menu to original authentic coastal dishes.
             </p>
           </div>
@@ -752,7 +752,7 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
                 showToast('Reset menu to factory default items.');
               }
             }}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-[#D8C7B3] bg-white text-xs font-bold text-[#6E726B] hover:text-[#C85A32] hover:border-[#C85A32] transition"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-[#43302a] bg-[#241a17] text-xs font-bold text-[#bba99d] hover:text-[#f24b26] hover:border-[#f24b26] transition"
           >
             <RefreshCw size={14} /> Reset Menu to Default
           </button>
@@ -768,32 +768,32 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
           onClick={(e) => {
             if (e.target === e.currentTarget) setIsDishSearchOpen(false);
           }}
-          className="fixed inset-0 z-50 bg-black/65 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 overflow-y-auto"
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 overflow-y-auto"
           role="dialog"
           aria-modal="true"
         >
-          <div className="bg-[#FAF4EA] border border-[#D8C7B3] rounded-3xl w-full max-w-2xl shadow-2xl relative my-6 animate-rise-in max-h-[92vh] flex flex-col overflow-hidden">
+          <div className="bg-[#1b1513] border border-[#43302a] rounded-3xl w-full max-w-2xl shadow-2xl relative my-6 animate-rise-in max-h-[92vh] flex flex-col overflow-hidden">
             
             {/* Header: Clean & minimal */}
-            <div className="p-5 sm:p-6 pb-4 border-b border-[#D8C7B3] bg-[#F5ECE0]">
+            <div className="p-5 sm:p-6 pb-4 border-b border-[#43302a] bg-[#241a17]">
               <div className="flex items-center justify-between gap-3 mb-3">
                 <div className="flex items-center gap-2">
-                  <span className="w-7 h-7 rounded-full bg-[#0E352E] text-[#C6A56A] flex items-center justify-center text-xs font-bold shadow-sm">
+                  <span className="w-7 h-7 rounded-full bg-[#f24b26] text-white flex items-center justify-center text-xs font-bold shadow-sm">
                     <Search size={14} />
                   </span>
                   <div>
-                    <h2 className="text-lg sm:text-xl font-display font-bold text-[#0E352E] m-0 leading-tight">
+                    <h2 className="text-lg sm:text-xl font-display font-bold text-[#fff5e8] m-0 leading-tight">
                       ಕರ್ನಾಟಕದ ಖಾದ್ಯ ಹುಡುಕಿ ಸೇರಿಸಿ · Karnataka Dish Search
                     </h2>
-                    <p className="text-[11px] text-[#6E726B] m-0 mt-0.5">
-                      Type <strong>ANY</strong> Karnataka dish in English (e.g. <span className="font-semibold text-[#0E352E]">Bisi Bele Bath</span>, <span className="font-semibold text-[#0E352E]">Davangere Benne Dosa</span>, <span className="font-semibold text-[#0E352E]">Nati Koli Saaru</span>, <span className="font-semibold text-[#0E352E]">Bangdi Fry</span>) — added in Kannada with photo!
+                    <p className="text-[11px] text-[#bba99d] m-0 mt-0.5">
+                      Type <strong>ANY</strong> Karnataka dish in English (e.g. <span className="font-semibold text-[#ff8b48]">Bisi Bele Bath</span>, <span className="font-semibold text-[#ff8b48]">Davangere Benne Dosa</span>, <span className="font-semibold text-[#ff8b48]">Nati Koli Saaru</span>, <span className="font-semibold text-[#ff8b48]">Bangdi Fry</span>) — added in Kannada with photo!
                     </p>
                   </div>
                 </div>
 
                 <button
                   onClick={() => setIsDishSearchOpen(false)}
-                  className="w-8 h-8 rounded-full bg-white border border-[#D8C7B3] flex items-center justify-center text-[#6E726B] hover:text-[#0E352E] hover:bg-[#EAE0D0] transition shrink-0"
+                  className="w-8 h-8 rounded-full bg-[#1b1513] border border-[#43302a] flex items-center justify-center text-[#bba99d] hover:text-[#f24b26] hover:bg-[#241a17] transition shrink-0"
                   aria-label="Close search"
                 >
                   <X size={16} />
@@ -802,19 +802,19 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
 
               {/* SEARCH INPUT BAR — Prominent, auto-focused */}
               <div className="relative mt-2">
-                <Search size={18} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#7CA89B]" />
+                <Search size={18} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#ff8b48]" />
                 <input
                   type="text"
                   autoFocus
                   value={dishSearchQuery}
                   onChange={(e) => setDishSearchQuery(e.target.value)}
                   placeholder="🔍 Type ANY food: Bisi Bele Bath, Mysore Pak, Ragi Mudde, Benne Dosa, Bangdi Fry, Nati Koli..."
-                  className="w-full pl-10 pr-10 py-3 rounded-2xl border-2 border-[#0E352E]/30 bg-white text-sm font-medium text-[#252B27] placeholder:text-[#9A9E96] outline-none transition focus:border-[#0E352E] focus:ring-4 focus:ring-[#0E352E]/10 shadow-inner"
+                  className="w-full pl-10 pr-10 py-3 rounded-2xl border-2 border-[#43302a] bg-[#1b1513] text-sm font-medium text-[#fff5e8] placeholder-[#7a6059] outline-none transition focus:border-[#f24b26] focus:ring-4 focus:ring-[#f24b26]/10 shadow-inner"
                 />
                 {dishSearchQuery && (
                   <button
                     onClick={() => setDishSearchQuery('')}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-[#6E726B] hover:text-[#0E352E] p-1"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-[#bba99d] hover:text-[#f24b26] p-1"
                   >
                     <X size={16} />
                   </button>
@@ -829,8 +829,8 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
                     onClick={() => setDishSearchCat(cat)}
                     className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition ${
                       dishSearchCat === cat
-                        ? 'bg-[#0E352E] text-[#FAF4EA] shadow-sm'
-                        : 'bg-white/80 border border-[#D8C7B3] text-[#6E726B] hover:border-[#0E352E]'
+                        ? 'bg-[#f24b26] text-white shadow-sm'
+                        : 'bg-[#1b1513] border border-[#43302a] text-[#bba99d] hover:border-[#f24b26]'
                     }`}
                   >
                     {cat}
@@ -840,12 +840,12 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
             </div>
 
             {/* Results Count Bar */}
-            <div className="px-6 py-2 bg-[#EFE6D8] border-b border-[#D8C7B3] flex items-center justify-between text-xs text-[#6E726B]">
+            <div className="px-6 py-2 bg-[#241a17] border-b border-[#43302a] flex items-center justify-between text-xs text-[#bba99d]">
               <span>
                 {searchResults.length} {searchResults.length === 1 ? 'dish' : 'dishes'} found
                 {dishSearchQuery && <span> for &ldquo;<strong>{dishSearchQuery}</strong>&rdquo;</span>}
               </span>
-              <span className="text-[11px] text-[#0E352E] font-medium hidden sm:inline">
+              <span className="text-[11px] text-[#ff8b48] font-medium hidden sm:inline">
                 Click <strong>+ Add to Menu</strong> on any dish below
               </span>
             </div>
@@ -855,9 +855,9 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
 
               {/* ── AUTO-DETECTED ON-THE-FLY MATCH FOR ANY OTHER SEARCHED FOOD ── */}
               {instantMatch && (
-                <div className="rounded-2xl p-3.5 sm:p-4 border-2 border-[#C6A56A] bg-gradient-to-r from-[#FAF4EA] to-[#F5ECE0] shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div className="rounded-2xl p-3.5 sm:p-4 border-2 border-[#f24b26] bg-[#241a17] shadow-lg flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div className="flex items-center gap-3.5 min-w-0 flex-1">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden shrink-0 border border-[#C6A56A] bg-[#EFE6D8] shadow-sm relative">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden shrink-0 border border-[#f24b26]/50 bg-[#1b1513] shadow-sm relative">
                       <img
                         src={instantMatch.image}
                         alt={instantMatch.nameEn}
@@ -866,47 +866,47 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
                           (e.currentTarget as HTMLImageElement).src = '/cinematic-cuisine.jpg';
                         }}
                       />
-                      <div className="absolute top-1 left-1 bg-[#0E352E] text-[#C6A56A] text-[9px] font-bold px-1.5 py-0.5 rounded shadow flex items-center gap-0.5">
+                      <div className="absolute top-1 left-1 bg-[#f24b26] text-white text-[9px] font-bold px-1.5 py-0.5 rounded shadow flex items-center gap-0.5">
                         <Sparkles size={10} /> Instant
                       </div>
                     </div>
 
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-1.5 mb-0.5">
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-[#0E352E] text-[#C6A56A]">
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-[#f24b26] text-white">
                           ✨ Auto-Detected
                         </span>
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-[#FAF4EA] text-[#0E352E] border border-[#D8C7B3]">
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-[#1b1513] text-[#fff5e8] border border-[#43302a]">
                           {instantMatch.category}
                         </span>
                         {instantMatch.veg ? (
-                          <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800">🌱 Veg</span>
+                          <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-950/60 text-emerald-400 border border-emerald-800/40">🌱 Veg</span>
                         ) : (
-                          <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-red-100 text-red-800">🍗 Non-Veg</span>
+                          <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-red-950/60 text-red-400 border border-red-800/40">🍗 Non-Veg</span>
                         )}
                       </div>
 
                       {/* Transliterated Kannada Name */}
                       <h3
-                        className="text-base sm:text-lg font-bold text-[#0E352E] m-0 truncate"
+                        className="text-base sm:text-lg font-bold text-[#fff5e8] m-0 truncate"
                         style={{ fontFamily: "'Noto Serif Kannada', serif" }}
                       >
                         {instantMatch.name}
                       </h3>
 
-                      <div className="text-xs font-semibold text-[#C85A32] truncate">
+                      <div className="text-xs font-semibold text-[#ff8b48] truncate">
                         {instantMatch.nameEn} (Ready to add in Kannada)
                       </div>
 
-                      <p className="text-[11px] text-[#6E726B] line-clamp-1 mt-0.5 m-0">
+                      <p className="text-[11px] text-[#bba99d] line-clamp-1 mt-0.5 m-0">
                         {instantMatch.description}
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between sm:justify-end gap-3 pt-2 sm:pt-0 border-t sm:border-t-0 border-[#D8C7B3]">
-                    <div className="flex items-center gap-1 bg-white px-2.5 py-1.5 rounded-xl border border-[#C6A56A]">
-                      <span className="text-xs font-bold text-[#6E726B]">₹</span>
+                  <div className="flex items-center justify-between sm:justify-end gap-3 pt-2 sm:pt-0 border-t sm:border-t-0 border-[#43302a]">
+                    <div className="flex items-center gap-1 bg-[#1b1513] px-2.5 py-1.5 rounded-xl border border-[#43302a]">
+                      <span className="text-xs font-bold text-[#bba99d]">₹</span>
                       <input
                         type="number"
                         min="10"
@@ -919,7 +919,7 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
                             [instantMatch.nameEn]: isNaN(val) ? 0 : val,
                           }));
                         }}
-                        className="w-16 bg-transparent text-sm font-bold text-[#0E352E] outline-none text-right"
+                        className="w-16 bg-transparent text-sm font-bold text-[#fff5e8] outline-none text-right"
                       />
                     </div>
 
@@ -928,13 +928,13 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
                       onClick={() => handleAddDishFromSearch(instantMatch)}
                       className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold transition shadow-sm ${
                         addedDishNames[instantMatch.nameEn]
-                          ? 'bg-[#2A685D] text-white hover:bg-[#1E4D44]'
-                          : 'bg-[#0E352E] text-[#FAF4EA] hover:bg-[#17483F]'
+                          ? 'bg-[#25D366] text-white hover:bg-[#20b858]'
+                          : 'bg-[#f24b26] text-white hover:bg-[#d93f1d]'
                       }`}
                     >
                       {addedDishNames[instantMatch.nameEn] ? (
                         <>
-                          <CheckCircle2 size={14} className="text-[#C6A56A]" />
+                          <CheckCircle2 size={14} className="text-white" />
                           <span>Added! (ಮತ್ತೆ ಸೇರಿಸಿ)</span>
                         </>
                       ) : (
@@ -951,18 +951,18 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
               {/* Regular Catalogue Matches */}
               {searchResults.length === 0 && !instantMatch ? (
                 <div className="text-center py-10 px-4">
-                  <div className="w-14 h-14 rounded-full bg-[#EFE6D8] text-[#C85A32] flex items-center justify-center mx-auto mb-3">
+                  <div className="w-14 h-14 rounded-full bg-[#241a17] text-[#f24b26] flex items-center justify-center mx-auto mb-3 border border-[#43302a]">
                     <Search size={24} />
                   </div>
-                  <h3 className="text-sm font-bold text-[#0E352E]">
+                  <h3 className="text-sm font-bold text-[#fff5e8]">
                     No matching dish found for &ldquo;{dishSearchQuery}&rdquo;
                   </h3>
-                  <p className="text-xs text-[#6E726B] mt-1 max-w-sm mx-auto">
+                  <p className="text-xs text-[#bba99d] mt-1 max-w-sm mx-auto">
                     Search for any food in Karnataka: e.g. &ldquo;Bisi Bele Bath&rdquo;, &ldquo;Mysore Pak&rdquo;, &ldquo;Ragi Mudde&rdquo;, &ldquo;Benne Dosa&rdquo;, or &ldquo;Nati Koli&rdquo;.
                   </p>
                   <button
                     onClick={openManualAddModal}
-                    className="mt-4 inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0E352E] text-white text-xs font-bold hover:bg-[#17483F] shadow-sm"
+                    className="mt-4 inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#f24b26] text-white text-xs font-bold hover:bg-[#d93f1d] shadow-sm"
                   >
                     <Plus size={14} /> + Add Custom Dish Manually
                   </button>
@@ -977,13 +977,13 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
                       key={dish.nameEn}
                       className={`rounded-2xl p-3.5 sm:p-4 border transition flex flex-col sm:flex-row sm:items-center justify-between gap-3 ${
                         isAdded
-                          ? 'bg-[#EAF3EE] border-[#2A685D]'
-                          : 'bg-white border-[#D8C7B3] hover:border-[#0E352E]/60 shadow-sm'
+                          ? 'bg-[#1b1513] border-[#25D366]'
+                          : 'bg-[#241a17] border-[#43302a] hover:border-[#f24b26]/60 shadow-sm'
                       }`}
                     >
                       {/* Left side: Photo + Kannada Name + English Subtitle */}
                       <div className="flex items-center gap-3.5 min-w-0 flex-1">
-                        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden shrink-0 border border-[#D8C7B3] bg-[#EFE6D8] shadow-sm relative">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden shrink-0 border border-[#43302a] bg-[#1b1513] shadow-sm relative">
                           <img
                             src={dish.image}
                             alt={dish.nameEn}
@@ -997,24 +997,24 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
                         <div className="min-w-0 flex-1">
                           <div className="flex flex-wrap items-center gap-1.5 mb-0.5">
                             {dish.region && (
-                              <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-[#FAF4EA] text-[#C85A32] border border-[#C85A32]/30">
+                              <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-[#1b1513] text-[#ff8b48] border border-[#43302a]">
                                 {dish.region}
                               </span>
                             )}
-                            <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-[#EFE6D8] text-[#0E352E] border border-[#D8C7B3]">
+                            <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-[#1b1513] text-[#fff5e8] border border-[#43302a]">
                               {dish.category}
                             </span>
                             {dish.veg ? (
-                              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800">
+                              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-950/60 text-emerald-400 border border-emerald-800/40">
                                 🌱 Veg
                               </span>
                             ) : (
-                              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-red-100 text-red-800">
+                              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-red-950/60 text-red-400 border border-red-800/40">
                                 🍗 Non-Veg
                               </span>
                             )}
                             {dish.spice > 0 && (
-                              <span className="text-[10px] text-[#C85A32] font-semibold">
+                              <span className="text-[10px] text-[#f24b26] font-semibold">
                                 {'🌶️'.repeat(dish.spice)}
                               </span>
                             )}
@@ -1022,27 +1022,27 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
 
                           {/* Authentic Kannada Name — Bold and Prominent */}
                           <h3
-                            className="text-base sm:text-lg font-bold text-[#0E352E] m-0 truncate"
+                            className="text-base sm:text-lg font-bold text-[#fff5e8] m-0 truncate"
                             style={{ fontFamily: "'Noto Serif Kannada', serif" }}
                           >
                             {dish.name}
                           </h3>
 
                           {/* English subtitle */}
-                          <div className="text-xs font-semibold text-[#6E726B] truncate">
+                          <div className="text-xs font-semibold text-[#bba99d] truncate">
                             {dish.nameEn}
                           </div>
 
-                          <p className="text-[11px] text-[#6E726B] line-clamp-1 mt-0.5 m-0">
+                          <p className="text-[11px] text-[#bba99d] line-clamp-1 mt-0.5 m-0">
                             {dish.description}
                           </p>
                         </div>
                       </div>
 
                       {/* Right side: Price Input + Add Button */}
-                      <div className="flex items-center justify-between sm:justify-end gap-3 pt-2 sm:pt-0 border-t sm:border-t-0 border-[#EFE6D8]">
-                        <div className="flex items-center gap-1 bg-[#FAF4EA] px-2.5 py-1.5 rounded-xl border border-[#D8C7B3]">
-                          <span className="text-xs font-bold text-[#6E726B]">₹</span>
+                      <div className="flex items-center justify-between sm:justify-end gap-3 pt-2 sm:pt-0 border-t sm:border-t-0 border-[#43302a]">
+                        <div className="flex items-center gap-1 bg-[#1b1513] px-2.5 py-1.5 rounded-xl border border-[#43302a]">
+                          <span className="text-xs font-bold text-[#bba99d]">₹</span>
                           <input
                             type="number"
                             min="10"
@@ -1055,7 +1055,7 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
                                 [dish.nameEn]: isNaN(val) ? 0 : val,
                               }));
                             }}
-                            className="w-16 bg-transparent text-sm font-bold text-[#0E352E] outline-none text-right"
+                            className="w-16 bg-transparent text-sm font-bold text-[#fff5e8] outline-none text-right"
                             title="Set custom price"
                           />
                         </div>
@@ -1065,13 +1065,13 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
                           onClick={() => handleAddDishFromSearch(dish)}
                           className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold transition shadow-sm ${
                             isAdded
-                              ? 'bg-[#2A685D] text-white hover:bg-[#1E4D44]'
-                              : 'bg-[#0E352E] text-[#FAF4EA] hover:bg-[#17483F]'
+                              ? 'bg-[#25D366] text-white hover:bg-[#20b858]'
+                              : 'bg-[#f24b26] text-white hover:bg-[#d93f1d]'
                           }`}
                         >
                           {isAdded ? (
                             <>
-                              <CheckCircle2 size={14} className="text-[#C6A56A]" />
+                              <CheckCircle2 size={14} className="text-white" />
                               <span>Added! (ಮತ್ತೆ ಸೇರಿಸಿ)</span>
                             </>
                           ) : (
@@ -1089,14 +1089,14 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
             </div>
 
             {/* Modal Bottom Footer: Custom Dish Escape Hatch */}
-            <div className="p-3.5 sm:p-4 bg-[#F5ECE0] border-t border-[#D8C7B3] flex items-center justify-between gap-3 text-xs">
-              <span className="text-[#6E726B]">
+            <div className="p-3.5 sm:p-4 bg-[#241a17] border-t border-[#43302a] flex items-center justify-between gap-3 text-xs">
+              <span className="text-[#bba99d]">
                 Looking to customize every field manually?
               </span>
               <button
                 type="button"
                 onClick={openManualAddModal}
-                className="text-[#0E352E] font-bold hover:underline flex items-center gap-1"
+                className="text-[#f24b26] font-bold hover:underline flex items-center gap-1"
               >
                 <span>+ Custom dish form</span>
               </button>
@@ -1115,23 +1115,23 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
           onClick={(e) => {
             if (e.target === e.currentTarget) setIsModalOpen(false);
           }}
-          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto"
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto"
           role="dialog"
           aria-modal="true"
         >
-          <div className="bg-[#FAF4EA] border border-[#D8C7B3] rounded-3xl w-full max-w-xl p-6 sm:p-8 shadow-2xl relative my-8 animate-rise-in max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between pb-4 border-b border-[#D8C7B3] mb-6">
+          <div className="bg-[#1b1513] border border-[#43302a] rounded-3xl w-full max-w-xl p-6 sm:p-8 shadow-2xl relative my-8 animate-rise-in max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between pb-4 border-b border-[#43302a] mb-6">
               <div>
-                <div className="text-[10px] font-bold uppercase tracking-widest text-[#C85A32]">
+                <div className="text-[10px] font-bold uppercase tracking-widest text-[#f24b26]">
                   {editingProduct ? 'EDIT DISH' : 'CUSTOM DISH'}
                 </div>
-                <h2 className="text-xl sm:text-2xl font-display font-semibold text-[#0E352E] m-0">
+                <h2 className="text-xl sm:text-2xl font-display font-semibold text-[#fff5e8] m-0">
                   {editingProduct ? `Edit ${editingProduct.nameEn}` : 'Add Custom Food Item'}
                 </h2>
               </div>
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="w-8 h-8 rounded-full bg-[#EAE0D0] flex items-center justify-center text-[#6E726B] hover:text-[#0E352E]"
+                className="w-8 h-8 rounded-full bg-[#241a17] border border-[#43302a] flex items-center justify-center text-[#bba99d] hover:text-[#f24b26]"
               >
                 <X size={16} />
               </button>
@@ -1140,7 +1140,7 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
             <form onSubmit={handleSaveProduct} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-[#252B27] mb-1">
+                  <label className="block text-xs font-bold text-[#fff5e8] mb-1">
                     Dish Name in Kannada (ಹೆಸರು) *
                   </label>
                   <input
@@ -1148,13 +1148,13 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
                     value={formName}
                     onChange={(e) => setFormName(e.target.value)}
                     placeholder="e.g. ಮಟನ್ ಸುಕ್ಕಾ"
-                    className="w-full rounded-xl border border-[#D8C7B3] bg-white px-3.5 py-2.5 text-xs text-[#252B27] outline-none focus:border-[#0E352E]"
+                    className="w-full rounded-xl border border-[#43302a] bg-[#241a17] px-3.5 py-2.5 text-xs text-[#fff5e8] outline-none focus:border-[#f24b26]"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-[#252B27] mb-1">
+                  <label className="block text-xs font-bold text-[#fff5e8] mb-1">
                     Dish Name in English *
                   </label>
                   <input
@@ -1162,7 +1162,7 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
                     value={formNameEn}
                     onChange={(e) => setFormNameEn(e.target.value)}
                     placeholder="e.g. Mutton Sukka"
-                    className="w-full rounded-xl border border-[#D8C7B3] bg-white px-3.5 py-2.5 text-xs text-[#252B27] outline-none focus:border-[#0E352E]"
+                    className="w-full rounded-xl border border-[#43302a] bg-[#241a17] px-3.5 py-2.5 text-xs text-[#fff5e8] outline-none focus:border-[#f24b26]"
                     required
                   />
                 </div>
@@ -1170,7 +1170,7 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-[#252B27] mb-1">
+                  <label className="block text-xs font-bold text-[#fff5e8] mb-1">
                     Price (₹) *
                   </label>
                   <input
@@ -1179,49 +1179,49 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
                     onChange={(e) => setFormPrice(e.target.value)}
                     placeholder="340"
                     min="1"
-                    className="w-full rounded-xl border border-[#D8C7B3] bg-white px-3.5 py-2.5 text-xs text-[#252B27] outline-none focus:border-[#0E352E]"
+                    className="w-full rounded-xl border border-[#43302a] bg-[#241a17] px-3.5 py-2.5 text-xs text-[#fff5e8] outline-none focus:border-[#f24b26]"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-[#252B27] mb-1">
+                  <label className="block text-xs font-bold text-[#fff5e8] mb-1">
                     Category *
                   </label>
                   <select
                     value={formCategory}
                     onChange={(e) => setFormCategory(e.target.value)}
-                    className="w-full rounded-xl border border-[#D8C7B3] bg-white px-3.5 py-2.5 text-xs text-[#252B27] outline-none focus:border-[#0E352E]"
+                    className="w-full rounded-xl border border-[#43302a] bg-[#241a17] px-3.5 py-2.5 text-xs text-[#fff5e8] outline-none focus:border-[#f24b26]"
                   >
                     {STANDARD_CATEGORIES.map((c) => (
-                      <option key={c} value={c}>
+                      <option key={c} value={c} className="bg-[#1b1513] text-[#fff5e8]">
                         {c}
                       </option>
                     ))}
-                    <option value="Custom">+ Custom Category</option>
+                    <option value="Custom" className="bg-[#1b1513] text-[#fff5e8]">+ Custom Category</option>
                   </select>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-[#252B27] mb-1">
+                  <label className="block text-xs font-bold text-[#fff5e8] mb-1">
                     Spice Level
                   </label>
                   <select
                     value={formSpice}
                     onChange={(e) => setFormSpice(Number(e.target.value) as 0 | 1 | 2 | 3)}
-                    className="w-full rounded-xl border border-[#D8C7B3] bg-white px-3.5 py-2.5 text-xs text-[#252B27] outline-none focus:border-[#0E352E]"
+                    className="w-full rounded-xl border border-[#43302a] bg-[#241a17] px-3.5 py-2.5 text-xs text-[#fff5e8] outline-none focus:border-[#f24b26]"
                   >
-                    <option value="0">0 - Mild / No Chilli</option>
-                    <option value="1">1 - Gentle Spice</option>
-                    <option value="2">2 - Medium Spicy</option>
-                    <option value="3">3 - Karavali Hot 🔥</option>
+                    <option value="0" className="bg-[#1b1513] text-[#fff5e8]">0 - Mild / No Chilli</option>
+                    <option value="1" className="bg-[#1b1513] text-[#fff5e8]">1 - Gentle Spice</option>
+                    <option value="2" className="bg-[#1b1513] text-[#fff5e8]">2 - Medium Spicy</option>
+                    <option value="3" className="bg-[#1b1513] text-[#fff5e8]">3 - Karavali Hot 🔥</option>
                   </select>
                 </div>
               </div>
 
               {formCategory === 'Custom' && (
                 <div>
-                  <label className="block text-xs font-bold text-[#252B27] mb-1">
+                  <label className="block text-xs font-bold text-[#fff5e8] mb-1">
                     Custom Category Name
                   </label>
                   <input
@@ -1229,29 +1229,29 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
                     value={customCategory}
                     onChange={(e) => setCustomCategory(e.target.value)}
                     placeholder="e.g. Desserts, Specials"
-                    className="w-full rounded-xl border border-[#D8C7B3] bg-white px-3.5 py-2.5 text-xs text-[#252B27] outline-none focus:border-[#0E352E]"
+                    className="w-full rounded-xl border border-[#43302a] bg-[#241a17] px-3.5 py-2.5 text-xs text-[#fff5e8] outline-none focus:border-[#f24b26]"
                   />
                 </div>
               )}
 
               {/* Veg / Non-Veg & Availability Toggles */}
-              <div className="grid grid-cols-2 gap-4 p-3 bg-[#EFE6D8] rounded-xl border border-[#D8C7B3]">
-                <label className="flex items-center gap-2 cursor-pointer text-xs font-bold text-[#252B27]">
+              <div className="grid grid-cols-2 gap-4 p-3 bg-[#241a17] rounded-xl border border-[#43302a]">
+                <label className="flex items-center gap-2 cursor-pointer text-xs font-bold text-[#fff5e8]">
                   <input
                     type="checkbox"
                     checked={formVeg}
                     onChange={(e) => setFormVeg(e.target.checked)}
-                    className="w-4 h-4 accent-[#2A685D] rounded"
+                    className="w-4 h-4 accent-[#25D366] rounded"
                   />
                   <span>🌱 Pure Vegetarian</span>
                 </label>
 
-                <label className="flex items-center gap-2 cursor-pointer text-xs font-bold text-[#252B27]">
+                <label className="flex items-center gap-2 cursor-pointer text-xs font-bold text-[#fff5e8]">
                   <input
                     type="checkbox"
                     checked={formAvailable}
                     onChange={(e) => setFormAvailable(e.target.checked)}
-                    className="w-4 h-4 accent-[#0E352E] rounded"
+                    className="w-4 h-4 accent-[#25D366] rounded"
                   />
                   <span>🟢 Available for orders</span>
                 </label>
@@ -1259,7 +1259,7 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
 
               {/* Image Picker */}
               <div>
-                <label className="block text-xs font-bold text-[#252B27] mb-1">
+                <label className="block text-xs font-bold text-[#fff5e8] mb-1">
                   Food Photo Preset or Image URL
                 </label>
                 <div className="flex gap-2 mb-2 overflow-x-auto pb-1 scrollbar-none">
@@ -1270,8 +1270,8 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
                       onClick={() => setFormImage(preset.url)}
                       className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[10px] font-semibold border transition shrink-0 ${
                         formImage === preset.url
-                          ? 'bg-[#0E352E] text-white border-[#0E352E]'
-                          : 'bg-white border-[#D8C7B3] text-[#6E726B] hover:border-[#0E352E]'
+                          ? 'bg-[#f24b26] text-white border-[#f24b26]'
+                          : 'bg-[#241a17] border-[#43302a] text-[#bba99d] hover:border-[#f24b26]'
                       }`}
                     >
                       <img src={preset.url} alt="" className="w-4 h-4 rounded object-cover" />
@@ -1284,13 +1284,13 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
                   value={formImage}
                   onChange={(e) => setFormImage(e.target.value)}
                   placeholder="Paste image path or URL (e.g. /chicken-ghee-roast.jpg)"
-                  className="w-full rounded-xl border border-[#D8C7B3] bg-white px-3.5 py-2.5 text-xs text-[#252B27] outline-none focus:border-[#0E352E]"
+                  className="w-full rounded-xl border border-[#43302a] bg-[#241a17] px-3.5 py-2.5 text-xs text-[#fff5e8] outline-none focus:border-[#f24b26]"
                 />
               </div>
 
               {/* Description */}
               <div>
-                <label className="block text-xs font-bold text-[#252B27] mb-1">
+                <label className="block text-xs font-bold text-[#fff5e8] mb-1">
                   Dish Description (ವಿವರಣೆ)
                 </label>
                 <textarea
@@ -1298,21 +1298,21 @@ export function AdminPage({ products, setProducts, onResetMenu }: AdminPageProps
                   onChange={(e) => setFormDesc(e.target.value)}
                   rows={2}
                   placeholder="Slow-roasted with native spices, curry leaves and traditional ghee..."
-                  className="w-full rounded-xl border border-[#D8C7B3] bg-white px-3.5 py-2.5 text-xs text-[#252B27] outline-none focus:border-[#0E352E]"
+                  className="w-full rounded-xl border border-[#43302a] bg-[#241a17] px-3.5 py-2.5 text-xs text-[#fff5e8] outline-none focus:border-[#f24b26]"
                 />
               </div>
 
-              <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#D8C7B3]">
+              <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#43302a]">
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-5 py-2.5 rounded-full border border-[#D8C7B3] bg-white text-xs font-semibold text-[#6E726B] hover:bg-[#EAE0D0]"
+                  className="px-5 py-2.5 rounded-full border border-[#43302a] bg-[#241a17] text-xs font-semibold text-[#bba99d] hover:bg-[#1b1513]"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2.5 rounded-full bg-[#0E352E] text-xs font-bold text-white hover:bg-[#17483F] shadow-sm"
+                  className="px-6 py-2.5 rounded-full bg-[#f24b26] text-xs font-bold text-white hover:bg-[#d93f1d] shadow-sm"
                 >
                   {editingProduct ? 'Save Changes' : 'Add to Menu'}
                 </button>

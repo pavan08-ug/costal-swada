@@ -128,7 +128,7 @@ export function CoastalSwadaIntro({ onComplete, isExiting }: IntroProps) {
   return (
     <div
       onClick={isAwaitingScroll ? triggerTransition : undefined}
-      className={`fixed inset-0 z-50 flex flex-col justify-between overflow-hidden bg-[#123D36] text-[#FAF6ED] select-none ${isAwaitingScroll ? 'cursor-pointer' : ''}`}
+      className={`fixed inset-0 z-50 flex flex-col justify-between overflow-hidden bg-[#100d0c] text-[#fff5e8] select-none ${isAwaitingScroll ? 'cursor-pointer' : ''}`}
       style={{
         opacity: isExiting || scene === 5 ? 0 : 1,
         transform: isExiting || scene === 5 ? 'scale3d(1.02, 1.02, 1)' : 'scale3d(1, 1, 1)',
@@ -160,8 +160,8 @@ export function CoastalSwadaIntro({ onComplete, isExiting }: IntroProps) {
             className="w-full h-full object-cover object-center animate-cinematic-pan"
             decoding="async"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#123D36]/85 via-transparent to-[#123D36]/50" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#123D36]/60 via-transparent to-[#123D36]/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#100d0c]/85 via-transparent to-[#100d0c]/50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#100d0c]/60 via-transparent to-[#100d0c]/60" />
         </div>
 
         {/* Scene 3 & 4: Authentic Karavali Cuisine Feast */}
@@ -184,12 +184,12 @@ export function CoastalSwadaIntro({ onComplete, isExiting }: IntroProps) {
             }}
             decoding="async"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#123D36]/90 via-[#123D36]/40 to-[#123D36]/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#100d0c]/90 via-[#100d0c]/40 to-[#100d0c]/60" />
           <div className="absolute inset-0 bg-radial-vignette" />
         </div>
 
-        {/* Cinematic Sun Glint Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#C6A56A]/5 to-transparent mix-blend-overlay pointer-events-none" />
+        {/* Cinematic Warm Glint Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#f24b26]/5 to-transparent mix-blend-overlay pointer-events-none" />
       </div>
 
       {/* CENTER STAGE: SCENE-BY-SCENE STORYTELLING & BRAND REVEAL */}
@@ -199,13 +199,13 @@ export function CoastalSwadaIntro({ onComplete, isExiting }: IntroProps) {
           <div className="animate-fade-in-up max-w-3xl space-y-3 px-4">
             <p
               style={{ fontFamily: "'Noto Serif Kannada', serif" }}
-              className="text-2xl sm:text-5xl md:text-6xl font-semibold tracking-wide text-[#FAF6ED] drop-shadow-xl leading-tight"
+              className="text-2xl sm:text-5xl md:text-6xl font-semibold tracking-wide text-[#fff5e8] drop-shadow-xl leading-tight"
             >
               ಸಂಸ್ಕೃತಿಯಲ್ಲಿ ಶ್ರೀಮಂತ, ರುಚಿಯಲ್ಲಿ ಅನನ್ಯ —
             </p>
             <p
               style={{ fontFamily: "'Noto Serif Kannada', serif" }}
-              className="text-2xl sm:text-5xl md:text-6xl font-bold tracking-wide text-[#C6A56A] drop-shadow-xl leading-tight"
+              className="text-2xl sm:text-5xl md:text-6xl font-bold tracking-wide text-[#f9c778] drop-shadow-xl leading-tight"
             >
               ನಮ್ಮ ಹೆಮ್ಮೆಯ ಕರಾವಳಿ!
             </p>
@@ -217,13 +217,13 @@ export function CoastalSwadaIntro({ onComplete, isExiting }: IntroProps) {
           <div className="animate-fade-in-up max-w-3xl space-y-3 px-4">
             <p
               style={{ fontFamily: "'Noto Serif Kannada', serif" }}
-              className="text-2xl sm:text-5xl md:text-6xl font-semibold tracking-wide text-[#FAF6ED] drop-shadow-xl leading-tight"
+              className="text-2xl sm:text-5xl md:text-6xl font-semibold tracking-wide text-[#fff5e8] drop-shadow-xl leading-tight"
             >
               ಕರಾವಳಿಯ ರುಚಿ ಹೇಗಿರಬೇಕೆಂದು ಕೇಳಬೇಡಿ,
             </p>
             <p
               style={{ fontFamily: "'Noto Serif Kannada', serif" }}
-              className="text-2xl sm:text-5xl md:text-6xl font-bold tracking-wide text-[#C6A56A] drop-shadow-xl leading-tight"
+              className="text-2xl sm:text-5xl md:text-6xl font-bold tracking-wide text-[#f9c778] drop-shadow-xl leading-tight"
             >
               ಒಮ್ಮೆ ನಮ್ಮಲ್ಲಿಗೆ ಬನ್ನಿ!
             </p>
@@ -234,38 +234,38 @@ export function CoastalSwadaIntro({ onComplete, isExiting }: IntroProps) {
         {scene >= 4 && (
           <div className="animate-scale-in max-w-2xl space-y-6">
             {/* Logo Emblem */}
-            <div className="mx-auto w-16 h-16 rounded-full border-2 border-[#C6A56A] bg-[#123D36]/80 backdrop-blur-md flex items-center justify-center text-[#C6A56A] shadow-2xl animate-glow">
+            <div className="mx-auto w-16 h-16 rounded-full border-2 border-[#f24b26] bg-[#1b1513]/90 backdrop-blur-md flex items-center justify-center text-[#f24b26] shadow-2xl animate-glow">
               <Utensils className="w-8 h-8" />
             </div>
 
             <div className="space-y-2">
-              <div className="text-[12px] sm:text-[13px] font-bold uppercase tracking-[0.35em] text-[#C6A56A] font-sans">
+              <div className="text-[12px] sm:text-[13px] font-bold uppercase tracking-[0.35em] text-[#f24b26] font-sans">
                 ಕರಾವಳಿ ಕುಟುಂಬ ರೆಸ್ಟಾರೆಂಟ್
               </div>
-              <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl font-semibold tracking-tight text-[#FAF6ED] drop-shadow-xl">
+              <h1 className="font-display uppercase text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight text-[#fff5e8] drop-shadow-xl">
                 COASTAL SWADA
               </h1>
               <div className="flex items-center justify-center gap-3 pt-1">
-                <span className="h-px w-12 bg-gradient-to-r from-transparent to-[#C6A56A]" />
-                <span className="text-[11px] sm:text-[13px] font-medium tracking-[0.28em] uppercase text-[#E9D9BC]">
+                <span className="h-px w-12 bg-gradient-to-r from-transparent to-[#f24b26]" />
+                <span className="text-[11px] sm:text-[13px] font-medium tracking-[0.28em] uppercase text-[#bba99d]">
                   The Taste of Karavali
                 </span>
-                <span className="h-px w-12 bg-gradient-to-l from-transparent to-[#C6A56A]" />
+                <span className="h-px w-12 bg-gradient-to-l from-transparent to-[#f24b26]" />
               </div>
             </div>
 
             {/* INTERACTIVE SCROLL TO ENTER PROMPT */}
             <div className="pt-2 flex flex-col items-center gap-3 group select-none">
-              <div className="flex items-center gap-2 rounded-full border border-[#C6A56A]/60 bg-[#123D36]/80 hover:bg-[#123D36] backdrop-blur-md px-5 py-2.5 text-xs font-semibold tracking-[0.22em] uppercase text-[#FAF6ED] group-hover:border-[#C6A56A] group-hover:text-[#C6A56A] transition-all shadow-xl">
+              <div className="flex items-center gap-2 rounded-full border border-[#43302a] bg-[#1b1513]/90 hover:bg-[#241a17] backdrop-blur-md px-5 py-2.5 text-xs font-semibold tracking-[0.22em] uppercase text-[#fff5e8] group-hover:border-[#f24b26] group-hover:text-[#f24b26] transition-all shadow-xl">
                 <span>Scroll to Enter</span>
-                <ChevronDown className="w-4 h-4 text-[#C6A56A] animate-bounce" />
+                <ChevronDown className="w-4 h-4 text-[#f24b26] animate-bounce" />
               </div>
 
-              <div className="w-5 h-9 rounded-full border border-[#C6A56A]/50 flex items-start justify-center p-1 shadow-md opacity-80 group-hover:opacity-100">
-                <div className="w-1.5 h-2.5 rounded-full bg-[#C6A56A] animate-scroll-dot" />
+              <div className="w-5 h-9 rounded-full border border-[#43302a] flex items-start justify-center p-1 shadow-md opacity-80 group-hover:opacity-100 group-hover:border-[#f24b26]">
+                <div className="w-1.5 h-2.5 rounded-full bg-[#f24b26] animate-scroll-dot" />
               </div>
 
-              <p className="text-[11px] text-[#E9D9BC]/75 tracking-wider font-light">
+              <p className="text-[11px] text-[#bba99d]/75 tracking-wider font-light">
                 Scroll down or click to enter the table
               </p>
             </div>

@@ -46,9 +46,9 @@ function usePersisted<T>(key: string, fallback: T) {
   useEffect(() => { localStorage.setItem(key, JSON.stringify(value)); }, [key, value]);
   return [value, setValue] as const;
 }
-const fieldClass = 'w-full rounded-xl border border-[#D8C7B3] bg-[#FAF4EA] px-4 py-3 text-[14px] text-[#252B27] outline-none transition focus:border-[#0E352E] focus:ring-2 focus:ring-[#0E352E]/10';
-const primaryClass = 'inline-flex items-center justify-center gap-2 rounded-full bg-[#0E352E] px-6 py-3.5 text-sm font-semibold text-[#FAF4EA] transition-all duration-200 hover:bg-[#17483F] hover:shadow-[0_6px_20px_rgba(14,53,46,0.25)] hover:-translate-y-0.5 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-45 shadow-[0_4px_14px_rgba(14,53,46,0.18)]';
-const secondaryClass = 'inline-flex items-center justify-center gap-2 rounded-full border border-[#D8C7B3] bg-[#FAF4EA] px-6 py-3.5 text-sm font-semibold text-[#0E352E] transition-all duration-200 hover:border-[#C85A32] hover:bg-[#F5ECE0] hover:text-[#C85A32] hover:shadow-[0_4px_14px_rgba(200,90,50,0.12)] hover:-translate-y-0.5 active:translate-y-0 shadow-sm';
+const fieldClass = 'w-full rounded-xl border border-[#43302a] bg-[#1b1513] px-4 py-3 text-[14px] text-[#fff5e8] outline-none transition placeholder:text-[#5a4540] focus:border-[#f24b26] focus:ring-2 focus:ring-[#f24b26]/15';
+const primaryClass = 'inline-flex items-center justify-center gap-2 rounded-full bg-[#f24b26] px-6 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-[#ff6a3d] hover:shadow-[0_6px_20px_rgba(242,75,38,0.4)] hover:-translate-y-0.5 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-45 shadow-[0_4px_14px_rgba(242,75,38,0.25)]';
+const secondaryClass = 'inline-flex items-center justify-center gap-2 rounded-full border border-[#43302a] bg-[#1b1513] px-6 py-3.5 text-sm font-semibold text-[#bba99d] transition-all duration-200 hover:border-[#f24b26] hover:text-[#f24b26] hover:bg-[#241a17] hover:shadow-[0_4px_14px_rgba(242,75,38,0.15)] hover:-translate-y-0.5 active:translate-y-0 shadow-sm';
 
 function App() {
   const [showIntro, setShowIntro] = useState(() => {
@@ -104,14 +104,14 @@ function App() {
         />
       )}
 
-      <div className="min-h-[100dvh] bg-[#EFE6D8] text-[#252B27] selection:bg-[#E2D4C3] selection:text-[#0E352E]">
-        <header className="sticky top-0 z-40 border-b border-[#D8C7B3] bg-[#EFE6D8]/92 backdrop-blur-md transition-colors">
+      <div className="min-h-[100dvh] bg-[#100d0c] text-[#fff5e8] selection:bg-[#43302a] selection:text-[#ff8b48]">
+        <header className="sticky top-0 z-40 border-b border-[#43302a] bg-[#100d0c]/95 backdrop-blur-md transition-colors">
           <div className="shell flex h-[76px] items-center justify-between">
             <Link href="/" className="flex items-center gap-3 no-underline group" data-testid="link-brand">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-[#0E352E] border border-[#C6A56A]/40 text-[#C6A56A] shadow-md transition-transform group-hover:scale-105"><Utensils size={18}/></span>
+              <span className="grid h-10 w-10 place-items-center rounded-full bg-[#f24b26] text-white shadow-[0_4px_14px_rgba(242,75,38,0.4)] transition-transform group-hover:scale-105"><Utensils size={18}/></span>
               <span className="leading-none">
-                <strong className="font-display text-[21px] font-semibold tracking-[-.03em] text-[#0E352E]">Coastal Swada</strong>
-                <small className="mt-1 block text-[9.5px] font-bold uppercase tracking-[.24em] text-[#77786F]">ಕರಾವಳಿ ಕುಟುಂಬ ರೆಸ್ಟಾರೆಂಟ್</small>
+                <strong className="font-display text-[22px] font-bold tracking-[-.02em] text-[#fff5e8] uppercase" style={{fontFamily:'Barlow Condensed,sans-serif',letterSpacing:'-.01em'}}>COASTAL SWADA</strong>
+                <small className="mt-0.5 block text-[9px] font-semibold uppercase tracking-[.2em] text-[#f24b26]">ಕರಾವಳಿ ಕುಟುಂಬ ರೆಸ್ಟಾರೆಂಟ್</small>
               </span>
             </Link>
             <Link href="/location" className="header-location" data-testid="link-header-location">
@@ -126,10 +126,10 @@ function App() {
 
             </nav>
             <div className="flex items-center gap-2">
-              <Link href="/login" className="grid h-10 w-10 place-items-center rounded-full text-[#0E352E] transition hover:bg-[#E2D4C3]/60" aria-label="Guest profile" data-testid="link-login"><CircleUserRound size={20}/></Link>
-              <Link href="/cart" className="relative inline-flex h-11 items-center gap-2 rounded-full bg-[#0E352E] px-4 text-sm font-semibold text-[#FAF4EA] transition hover:bg-[#17483F] shadow-sm hover:shadow-md" data-testid="link-cart"><ShoppingBag size={17}/><span className="hidden sm:inline">Your bag</span>{count > 0 && <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full border-2 border-[#FAF4EA] bg-[#B85C40] px-1 text-[10px] font-bold text-white" data-testid="text-cart-count">{count}</span>}</Link>
+              <Link href="/login" className="grid h-10 w-10 place-items-center rounded-full text-[#bba99d] transition hover:bg-[#241a17] hover:text-[#fff5e8]" aria-label="Guest profile" data-testid="link-login"><CircleUserRound size={20}/></Link>
+              <Link href="/cart" className="relative inline-flex h-11 items-center gap-2 rounded-full bg-[#f24b26] px-4 text-sm font-semibold text-white transition hover:bg-[#ff6a3d] shadow-[0_4px_14px_rgba(242,75,38,0.3)] hover:shadow-[0_6px_20px_rgba(242,75,38,0.4)]" data-testid="link-cart"><ShoppingBag size={17}/><span className="hidden sm:inline">Your bag</span>{count > 0 && <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full border-2 border-[#100d0c] bg-[#f9c778] px-1 text-[10px] font-bold text-[#100d0c]" data-testid="text-cart-count">{count}</span>}</Link>
               {/* Secret Owner Access Button: Discrete, low-contrast lock */}
-              <Link href="/admin" className="opacity-25 hover:opacity-100 transition-opacity p-1.5 text-[#0E352E] hover:text-[#C85A32] rounded-full hover:bg-[#E2D4C3]/40 ml-0.5" title="Management" aria-label="Staff Access" data-testid="secret-header-owner-btn">
+              <Link href="/admin" className="opacity-20 hover:opacity-100 transition-opacity p-1.5 text-[#bba99d] hover:text-[#f24b26] rounded-full hover:bg-[#241a17] ml-0.5" title="Management" aria-label="Staff Access" data-testid="secret-header-owner-btn">
                 <Lock size={13}/>
               </Link>
             </div>
@@ -154,8 +154,8 @@ function App() {
           <Link href="/account" className={path === '/account' ? 'active' : ''} aria-current={path === '/account' ? 'page' : undefined} data-testid="mobile-account"><CircleUserRound size={19}/><span>Account</span></Link>
           <Link href="/cart" className={path === '/cart' ? 'active' : ''} aria-current={path === '/cart' ? 'page' : undefined} data-testid="mobile-cart"><span className="mobile-cart-icon"><ShoppingBag size={19}/>{count > 0 && <i data-testid="mobile-cart-count">{count}</i>}</span><span>Cart</span></Link>
         </nav>
-        <footer className="mt-12 sm:mt-16 border-t border-[#E5C7B5]/40 text-[#FAF2E9] overflow-hidden relative" style={{ background: 'linear-gradient(180deg, #0A2621 0%, #061A16 100%)' }}>
-          <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-[#C85A32]/15 via-transparent to-transparent pointer-events-none rounded-full blur-3xl" />
+        <footer className="mt-12 sm:mt-16 border-t border-[#43302a] text-[#fff5e8] overflow-hidden relative" style={{ background: 'linear-gradient(180deg, #1b1513 0%, #100d0c 100%)' }}>
+          <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-[#f24b26]/10 via-transparent to-transparent pointer-events-none rounded-full blur-3xl" />
           <div className="shell py-14">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14 pb-12 border-b border-[#E5C7B5]/20">
               <div className="md:col-span-5 space-y-4">
@@ -277,8 +277,8 @@ function Home({ cart, changeQuantity, products: homeProducts, onReplayIntro }: {
     <div className="hero-atmosphere">
       <section className="hero shell">
         <div className="hero-copy">
-          <div className="eyebrow"><span className="eyebrow-line" style={{ background: '#C85A32' }}/> THE TASTE OF KARAVALI · ಕರಾವಳಿ ರುಚಿ</div>
-          <p className="text-base sm:text-lg text-[#C85A32] italic font-semibold my-2 tracking-wide" style={{ fontFamily: "'Noto Serif Kannada', serif" }}>
+          <div className="eyebrow"><span className="eyebrow-line" style={{ background: '#f24b26' }}/> THE TASTE OF KARAVALI · ಕರಾವಳಿ ರುಚಿ</div>
+          <p className="text-base sm:text-lg text-[#f24b26] italic font-semibold my-2 tracking-wide" style={{ fontFamily: "'Noto Serif Kannada', serif" }}>
             "ಕರಾವಳಿಯ ರುಚಿ, ಮನದ ನೆನಪು."
           </p>
           <h1 className="font-display">A little taste<br/>of the <em>coast.</em></h1>
@@ -310,47 +310,47 @@ function Home({ cart, changeQuantity, products: homeProducts, onReplayIntro }: {
             onError={handleFoodImageError}
           />
           <div className="image-caption"><span>THE KARAVALI TABLE · MANGALOREAN FEAST</span><span>01 — 08</span></div>
-          <div className="hero-stamp" style={{ borderColor: '#C85A32' }}>Made<br/>for<br/><i style={{ color: '#C85A32' }}>sharing</i></div>
+          <div className="hero-stamp">Made<br/>for<br/><i>sharing</i></div>
         </div>
       </section>
     </div>
     <section className="shell intro-strip">
       <p className="font-display">From the griddle to the ghee roast — discover a table inspired by the flavours of the western shore.</p>
-      <span className="text-[#C85A32] font-semibold">Authentic coastal recipes <ArrowRight size={15}/></span>
+      <span>Authentic coastal recipes <ArrowRight size={15}/></span>
     </section>
-    <section className="shell food-heritage-section my-7 sm:my-9 p-7 sm:p-12 rounded-3xl relative overflow-hidden shadow-xl" style={{ background: 'linear-gradient(135deg, #0A2621 0%, #0E352E 50%, #16463D 100%)', border: '1.5px solid rgba(229, 199, 181, 0.35)' }} data-testid="section-food-heritage">
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#C85A32]/20 via-transparent to-transparent pointer-events-none rounded-full blur-2xl" />
+    <section className="shell food-heritage-section my-7 sm:my-9 p-7 sm:p-12 rounded-3xl relative overflow-hidden shadow-xl" style={{ background: 'linear-gradient(135deg, #1b1513 0%, #241a17 100%)', border: '1.5px solid #43302a' }} data-testid="section-food-heritage">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#f24b26]/12 via-transparent to-transparent pointer-events-none rounded-full blur-2xl" />
       <div className="max-w-3xl relative z-10">
-        <div className="eyebrow mb-3.5"><span className="eyebrow-line" style={{ background: '#C85A32' }}/><span style={{ color: '#E8A27A', letterSpacing: '0.18em' }}>CULINARY TRADITIONS · ಪರಂಪರೆ</span></div>
-        <h2 className="text-3xl sm:text-5xl font-bold mb-4 tracking-tight leading-tight" style={{ fontFamily: "'Noto Serif Kannada', serif", color: '#FEEFE8' }}>
+        <div className="eyebrow mb-3.5"><span className="eyebrow-line" style={{ background: '#f24b26' }}/><span style={{ color: '#ff8b48', letterSpacing: '0.18em' }}>CULINARY TRADITIONS · ಪರಂಪರೆ</span></div>
+        <h2 className="text-3xl sm:text-5xl font-bold mb-4 tracking-tight leading-tight" style={{ fontFamily: "'Noto Serif Kannada', serif", color: '#fff5e8' }}>
           ಕರಾವಳಿಯ ಅಡುಗೆಯ ಪರಂಪರೆ
         </h2>
-        <p className="text-lg sm:text-xl leading-relaxed mb-3 font-medium" style={{ fontFamily: "'Noto Sans Kannada', sans-serif", color: '#F4E5DC' }}>
+        <p className="text-lg sm:text-xl leading-relaxed mb-3 font-medium" style={{ fontFamily: "'Noto Sans Kannada', sans-serif", color: '#fff5e8' }}>
           ತಾಜಾ ಪದಾರ್ಥಗಳು, ಸಾಂಪ್ರದಾಯಿಕ ಮಸಾಲೆಗಳು ಮತ್ತು ಕರಾವಳಿಯ ಅಡುಗೆ ಪರಂಪರೆಯಿಂದ ಪ್ರೇರಿತವಾದ ರುಚಿಗಳು.
         </p>
-        <p className="text-sm sm:text-base leading-relaxed" style={{ color: '#EEDBD0', opacity: 0.9 }}>
+        <p className="text-sm sm:text-base leading-relaxed" style={{ color: '#bba99d', opacity: 0.9 }}>
           Discover flavours inspired by coastal Karnataka, traditional spices, fresh ingredients, and generations of culinary heritage.
         </p>
       </div>
     </section>
     <section className="shell featured-section" aria-labelledby="featured-title">
       <div className="mb-4">
-        <p className="text-sm tracking-wide text-[#B85C40] font-medium" style={{ fontFamily: "'Noto Serif Kannada', serif" }}>
+        <p className="text-sm tracking-wide text-[#ff8b48] font-medium" style={{ fontFamily: "'Noto Serif Kannada', serif" }}>
           "ಸಮುದ್ರದ ಸೊಗಡು, ಮಸಾಲೆಯ ಘಮಲು."
         </p>
       </div>
-      <div className="section-heading"><div><div className="eyebrow"><span className="eyebrow-line" style={{ background: '#C6A56A' }}/> CHEF'S SPECIALS</div><h2 className="font-display" id="featured-title">Karavali <em>favourites.</em></h2></div><span className="menu-count">Signature picks</span></div>
+      <div className="section-heading"><div><div className="eyebrow"><span className="eyebrow-line" style={{ background: '#f24b26' }}/> CHEF'S SPECIALS</div><h2 className="font-display" id="featured-title">Karavali <em>favourites.</em></h2></div><span className="menu-count">Signature picks</span></div>
       <div className="featured-row">{homeProducts.filter((product) => product.popular >= 90).slice(0, 4).map((product) => <article className="featured-card" key={product.id} data-testid={`card-featured-${product.id}`}><img src={product.image} alt={product.name} loading="lazy" onError={handleFoodImageError}/><div><span>DEMO PICK</span><h3 className="font-display">{product.name}</h3><strong>{money(product.price)}</strong><button onClick={() => changeQuantity(product.id, 1)} disabled={!product.available} data-testid={`button-featured-add-${product.id}`}>{product.available ? <>Add <Plus size={14}/></> : 'Unavailable'}</button></div></article>)}</div>
     </section>
     <section id="menu" className="shell menu-section">
       <div className="mb-4">
-        <p className="text-sm tracking-wide text-[#C6A56A] font-medium" style={{ fontFamily: "'Noto Serif Kannada', serif" }}>
+        <p className="text-sm tracking-wide text-[#f9c778] font-medium" style={{ fontFamily: "'Noto Serif Kannada', serif" }}>
           "ಕರಾವಳಿಯ ಪರಂಪರೆ, ಪ್ರತಿಯೊಂದು ಖಾದ್ಯದಲ್ಲೂ."
         </p>
       </div>
-      <div className="section-heading"><div><div className="eyebrow"><span className="eyebrow-line" style={{ background: '#C6A56A' }}/> MADE FOR A LONG LUNCH</div><h2 className="font-display">Find your <em>favourite.</em></h2></div><span className="menu-count">{chosen.length} dishes</span></div>
+      <div className="section-heading"><div><div className="eyebrow"><span className="eyebrow-line" style={{ background: '#f24b26' }}/> MADE FOR A LONG LUNCH</div><h2 className="font-display">Find your <em>favourite.</em></h2></div><span className="menu-count">{chosen.length} dishes</span></div>
       <div className="toolbar">
-        <label className="searchbox border-[#E6DFD2]"><Search size={18}/><input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search the menu (e.g. Ghee Roast, Neer Dosa, Anjal...)" aria-label="Search menu" data-testid="input-menu-search"/>{query && <button onClick={() => setQuery('')} aria-label="Clear search" data-testid="button-clear-search"><X size={15}/></button>}</label>
+        <label className="searchbox border-[#43302a]"><Search size={18}/><input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search the menu (e.g. Ghee Roast, Neer Dosa, Anjal...)" aria-label="Search menu" data-testid="input-menu-search"/>{query && <button onClick={() => setQuery('')} aria-label="Clear search" data-testid="button-clear-search"><X size={15}/></button>}</label>
         <div className="filters">
           <div className="category-scroll">
             {currentCategories.map((name) => {
@@ -507,45 +507,45 @@ function QuickOrderModal({ summary, prefillCustomer, prefillAddress, onConfirm, 
   };
   const onBackdrop = (e: React.MouseEvent<HTMLDivElement>) => { if (e.target === e.currentTarget) onClose(); };
   return (
-    <div onClick={onBackdrop} style={{ position:'fixed',inset:0,zIndex:100,background:'rgba(10,38,32,0.75)',backdropFilter:'blur(5px)',display:'flex',alignItems:'flex-end',justifyContent:'center' }} role="dialog" aria-modal="true">
-      <div style={{ width:'100%',maxWidth:'520px',background:'#FAF4EA',borderRadius:'24px 24px 0 0',boxShadow:'0 -16px 60px rgba(14,53,46,0.2)',animation:'rise-in .35s ease both',maxHeight:'90dvh',overflowY:'auto' }}>
-        <div style={{ display:'flex',alignItems:'center',justifyContent:'space-between',padding:'20px 22px 14px',borderBottom:'1px solid #D8C7B3',position:'sticky',top:0,background:'#FAF4EA',zIndex:1,borderRadius:'24px 24px 0 0' }}>
-          <div><div style={{ fontSize:'9px',fontWeight:700,letterSpacing:'.18em',color:'#C85A32',marginBottom:'3px' }}>ALMOST THERE</div><h2 style={{ margin:0,fontSize:'20px',fontWeight:600,color:'#0E352E',fontFamily:'var(--app-font-serif)' }}>Your order details</h2></div>
-          <button onClick={onClose} aria-label="Close" style={{ border:0,background:'#EAE0D0',borderRadius:'50%',width:'34px',height:'34px',display:'grid',placeItems:'center',cursor:'pointer',color:'#6E726B' }}><X size={17}/></button>
+    <div onClick={onBackdrop} style={{ position:'fixed',inset:0,zIndex:100,background:'rgba(0,0,0,0.82)',backdropFilter:'blur(6px)',display:'flex',alignItems:'flex-end',justifyContent:'center' }} role="dialog" aria-modal="true">
+      <div style={{ width:'100%',maxWidth:'520px',background:'#1b1513',border:'1px solid #43302a',borderBottom:'none',borderRadius:'24px 24px 0 0',boxShadow:'0 -16px 60px rgba(0,0,0,0.6)',animation:'rise-in .35s ease both',maxHeight:'90dvh',overflowY:'auto' }}>
+        <div style={{ display:'flex',alignItems:'center',justifyContent:'space-between',padding:'20px 22px 14px',borderBottom:'1px solid #43302a',position:'sticky',top:0,background:'#1b1513',zIndex:1,borderRadius:'24px 24px 0 0' }}>
+          <div><div style={{ fontSize:'9px',fontWeight:700,letterSpacing:'.18em',color:'#f24b26',marginBottom:'3px' }}>ALMOST THERE</div><h2 style={{ margin:0,fontSize:'20px',fontWeight:600,color:'#fff5e8',fontFamily:'var(--app-font-serif)' }}>Your order details</h2></div>
+          <button onClick={onClose} aria-label="Close" style={{ border:'1px solid #43302a',background:'#241a17',borderRadius:'50%',width:'34px',height:'34px',display:'grid',placeItems:'center',cursor:'pointer',color:'#bba99d' }}><X size={17}/></button>
         </div>
-        <div style={{ margin:'14px 22px 4px',padding:'12px 16px',background:'linear-gradient(135deg,#0A2621 0%,#123D36 100%)',borderRadius:'14px',color:'#FAF6ED' }}>
-          <div style={{ fontSize:'10px',color:'#C6A56A',fontWeight:700,letterSpacing:'.12em',marginBottom:'6px' }}>YOUR ORDER · {summary.items.length} {summary.items.length===1?'item':'items'}</div>
-          {summary.items.slice(0,3).map(({productId,quantity})=>{const p=products.find(x=>x.id===productId);return p?<div key={productId} style={{ fontSize:'12px',color:'#E9D9BC',display:'flex',justifyContent:'space-between',marginBottom:'2px' }}><span>{p.name} × {quantity}</span><span>{money(p.price*quantity)}</span></div>:null;})}
-          {summary.items.length>3&&<div style={{ fontSize:'11px',color:'#C6A56A' }}>+{summary.items.length-3} more item{summary.items.length-3>1?'s':''}</div>}
-          <div style={{ marginTop:'8px',paddingTop:'8px',borderTop:'1px solid rgba(198,165,106,0.3)',display:'flex',justifyContent:'space-between',fontWeight:700,fontSize:'14px' }}><span>Total</span><span style={{ color:'#C6A56A' }}>{money(summary.grandTotal)}</span></div>
+        <div style={{ margin:'14px 22px 4px',padding:'12px 16px',background:'linear-gradient(135deg,#241a17 0%,#1b1513 100%)',border:'1px solid #43302a',borderRadius:'14px',color:'#fff5e8' }}>
+          <div style={{ fontSize:'10px',color:'#ff8b48',fontWeight:700,letterSpacing:'.12em',marginBottom:'6px' }}>YOUR ORDER · {summary.items.length} {summary.items.length===1?'item':'items'}</div>
+          {summary.items.slice(0,3).map(({productId,quantity})=>{const p=products.find(x=>x.id===productId);return p?<div key={productId} style={{ fontSize:'12px',color:'#bba99d',display:'flex',justifyContent:'space-between',marginBottom:'2px' }}><span>{p.name} × {quantity}</span><span style={{ color:'#ff8b48' }}>{money(p.price*quantity)}</span></div>:null;})}
+          {summary.items.length>3&&<div style={{ fontSize:'11px',color:'#f9c778' }}>+{summary.items.length-3} more item{summary.items.length-3>1?'s':''}</div>}
+          <div style={{ marginTop:'8px',paddingTop:'8px',borderTop:'1px solid #43302a',display:'flex',justifyContent:'space-between',fontWeight:700,fontSize:'14px' }}><span>Total</span><span style={{ color:'#ff8b48' }}>{money(summary.grandTotal)}</span></div>
         </div>
         <form onSubmit={submit} style={{ padding:'8px 22px 28px',display:'grid',gap:'14px' }}>
           <div>
-            <div style={{ fontSize:'11px',fontWeight:700,color:'#252B27',marginBottom:'8px' }}>Order type</div>
+            <div style={{ fontSize:'11px',fontWeight:700,color:'#fff5e8',marginBottom:'8px' }}>Order type</div>
             <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:'8px' }}>
               {(['pickup','delivery'] as const).map(type=>(
-                <button key={type} type="button" onClick={()=>setOrderType(type)} style={{ padding:'12px 8px',border:`2px solid ${orderType===type?'#123D36':'#E6DFD2'}`,borderRadius:'12px',background:orderType===type?'#123D36':'#FAF6ED',color:orderType===type?'#FAF6ED':'#252B27',fontWeight:700,fontSize:'12px',cursor:'pointer',transition:'all .2s',display:'flex',flexDirection:'column',alignItems:'center',gap:'4px' }}>
+                <button key={type} type="button" onClick={()=>setOrderType(type)} style={{ padding:'12px 8px',border:`2px solid ${orderType===type?'#f24b26':'#43302a'}`,borderRadius:'12px',background:orderType===type?'#f24b26':'#241a17',color:orderType===type?'#ffffff':'#bba99d',fontWeight:700,fontSize:'12px',cursor:'pointer',transition:'all .2s',display:'flex',flexDirection:'column',alignItems:'center',gap:'4px' }}>
                   <span style={{ fontSize:'18px' }}>{type==='pickup'?'🛍️':'🛵'}</span>
                   <span>{type==='pickup'?'Pickup / ಪಾರ್ಸೆಲ್':'Delivery / ಡೆಲಿವರಿ'}</span>
                 </button>
               ))}
             </div>
           </div>
-          <label style={{ display:'grid',gap:'6px',fontSize:'11px',fontWeight:700,color:'#252B27' }}>Your name *<input className={fieldClass} value={name} onChange={e=>setName(e.target.value)} placeholder="e.g. Pavan Kumar" required data-testid="input-quick-name"/></label>
-          <label style={{ display:'grid',gap:'6px',fontSize:'11px',fontWeight:700,color:'#252B27' }}>Mobile number *<input className={fieldClass} value={phone} onChange={e=>setPhone(e.target.value)} type="tel" inputMode="tel" placeholder="+91 98765 43210" required data-testid="input-quick-phone"/></label>
+          <label style={{ display:'grid',gap:'6px',fontSize:'11px',fontWeight:700,color:'#fff5e8' }}>Your name *<input className={fieldClass} value={name} onChange={e=>setName(e.target.value)} placeholder="e.g. Pavan Kumar" required data-testid="input-quick-name"/></label>
+          <label style={{ display:'grid',gap:'6px',fontSize:'11px',fontWeight:700,color:'#fff5e8' }}>Mobile number *<input className={fieldClass} value={phone} onChange={e=>setPhone(e.target.value)} type="tel" inputMode="tel" placeholder="+91 98765 43210" required data-testid="input-quick-phone"/></label>
           {orderType==='delivery'&&<>
-            <label style={{ display:'grid',gap:'6px',fontSize:'11px',fontWeight:700,color:'#252B27' }}>House / street address *<input className={fieldClass} value={addrLine1} onChange={e=>setAddrLine1(e.target.value)} placeholder="House no., street, area" required data-testid="input-quick-line1"/></label>
-            <label style={{ display:'grid',gap:'6px',fontSize:'11px',fontWeight:700,color:'#252B27' }}>Landmark <span style={{ fontWeight:400,color:'#6E726B' }}>Optional</span><input className={fieldClass} value={addrLandmark} onChange={e=>setAddrLandmark(e.target.value)} placeholder="Near bus stand, temple..." data-testid="input-quick-landmark"/></label>
+            <label style={{ display:'grid',gap:'6px',fontSize:'11px',fontWeight:700,color:'#fff5e8' }}>House / street address *<input className={fieldClass} value={addrLine1} onChange={e=>setAddrLine1(e.target.value)} placeholder="House no., street, area" required data-testid="input-quick-line1"/></label>
+            <label style={{ display:'grid',gap:'6px',fontSize:'11px',fontWeight:700,color:'#fff5e8' }}>Landmark <span style={{ fontWeight:400,color:'#bba99d' }}>Optional</span><input className={fieldClass} value={addrLandmark} onChange={e=>setAddrLandmark(e.target.value)} placeholder="Near bus stand, temple..." data-testid="input-quick-landmark"/></label>
             <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:'12px' }}>
-              <label style={{ display:'grid',gap:'6px',fontSize:'11px',fontWeight:700,color:'#252B27' }}>City *<input className={fieldClass} value={addrCity} onChange={e=>setAddrCity(e.target.value)} placeholder="Udupi" required data-testid="input-quick-city"/></label>
-              <label style={{ display:'grid',gap:'6px',fontSize:'11px',fontWeight:700,color:'#252B27' }}>PIN code<input className={fieldClass} value={addrPin} onChange={e=>setAddrPin(e.target.value)} inputMode="numeric" placeholder="576101" data-testid="input-quick-pin"/></label>
+              <label style={{ display:'grid',gap:'6px',fontSize:'11px',fontWeight:700,color:'#fff5e8' }}>City *<input className={fieldClass} value={addrCity} onChange={e=>setAddrCity(e.target.value)} placeholder="Udupi" required data-testid="input-quick-city"/></label>
+              <label style={{ display:'grid',gap:'6px',fontSize:'11px',fontWeight:700,color:'#fff5e8' }}>PIN code<input className={fieldClass} value={addrPin} onChange={e=>setAddrPin(e.target.value)} inputMode="numeric" placeholder="576101" data-testid="input-quick-pin"/></label>
             </div>
           </>}
-          {err&&<p style={{ margin:0,padding:'10px 13px',background:'#FFF0EB',border:'1px solid #E5C7B5',borderRadius:'10px',color:'#C85A32',fontSize:'12px' }} role="alert">{err}</p>}
-          <button type="submit" disabled={busy} style={{ display:'flex',alignItems:'center',justifyContent:'center',gap:'8px',width:'100%',padding:'15px',borderRadius:'99px',background:'#123D36',color:'#FAF6ED',fontWeight:700,fontSize:'14px',border:0,cursor:busy?'not-allowed':'pointer',opacity:busy?0.7:1,boxShadow:'0 4px 16px rgba(18,61,54,0.25)' }} data-testid="button-quick-order-submit">
+          {err&&<p style={{ margin:0,padding:'10px 13px',background:'rgba(242,75,38,0.12)',border:'1px solid #f24b26',borderRadius:'10px',color:'#ff8b48',fontSize:'12px' }} role="alert">{err}</p>}
+          <button type="submit" disabled={busy} style={{ display:'flex',alignItems:'center',justifyContent:'center',gap:'8px',width:'100%',padding:'15px',borderRadius:'99px',background:'#f24b26',color:'#ffffff',fontWeight:700,fontSize:'14px',border:0,cursor:busy?'not-allowed':'pointer',opacity:busy?0.7:1,boxShadow:'0 4px 16px rgba(242,75,38,0.35)' }} data-testid="button-quick-order-submit">
             {busy?'Opening WhatsApp…':<><MessageCircle size={18}/> Send order on WhatsApp</>}
           </button>
-          <p style={{ margin:0,textAlign:'center',fontSize:'10px',color:'#6E726B' }}>Sends directly to +91 95385 96072 · ⚠️ Prices are demo — confirm with restaurant</p>
+          <p style={{ margin:0,textAlign:'center',fontSize:'10px',color:'#bba99d' }}>Sends directly to +91 95385 96072 · ⚠️ Prices are demo — confirm with restaurant</p>
         </form>
       </div>
     </div>
@@ -592,18 +592,18 @@ function Cart({ cart, setCart, summary, customer, address, products }: { cart: C
             <div className="cart-item-end"><strong>{money(product.price * item.quantity)}</strong><button className="remove-button" onClick={() => setCart(cart.filter((entry) => entry.productId !== product.id))} aria-label={`Remove ${product.name}`} data-testid={`button-remove-${product.id}`}><Trash2 size={16}/></button></div>
           </article>;
         })}<Link href="/" className="add-more" data-testid="link-add-more"><Plus size={16}/> Add something else</Link></section>
-        <aside className="summary-card" style={{ borderColor: '#E5C7B5', boxShadow: '0 8px 24px rgba(14, 53, 46, 0.06)' }}>
+        <aside className="summary-card" style={{ borderColor: '#43302a', boxShadow: '0 8px 24px rgba(0, 0, 0, 0.4)' }}>
           <h2 className="font-display">Bill summary</h2>
           <div className="summary-line"><span>Food item total</span><strong data-testid="text-subtotal">{money(summary.subtotal)}</strong></div>
-          <div className="summary-line"><span style={{ color: '#16463D', fontWeight: 600 }}>Platform fee</span><span style={{ color: '#16463D', fontWeight: 700 }}>₹0 · Free</span></div>
-          <div className="summary-line"><span style={{ color: '#16463D', fontWeight: 600 }}>Packaging charges</span><span style={{ color: '#16463D', fontWeight: 700 }}>₹0 · Free</span></div>
-          <div className="summary-line"><span style={{ color: '#16463D', fontWeight: 600 }}>Delivery charges</span><span style={{ color: '#16463D', fontWeight: 700 }}>₹0 · Free</span></div>
+          <div className="summary-line"><span style={{ color: '#ff8b48', fontWeight: 600 }}>Platform fee</span><span style={{ color: '#25D366', fontWeight: 700 }}>₹0 · Free</span></div>
+          <div className="summary-line"><span style={{ color: '#ff8b48', fontWeight: 600 }}>Packaging charges</span><span style={{ color: '#25D366', fontWeight: 700 }}>₹0 · Free</span></div>
+          <div className="summary-line"><span style={{ color: '#ff8b48', fontWeight: 600 }}>Delivery charges</span><span style={{ color: '#25D366', fontWeight: 700 }}>₹0 · Free</span></div>
           <div className="summary-line total"><span>Grand total</span><strong data-testid="text-grand-total">{money(summary.grandTotal)}</strong></div>
-          <div style={{ background: 'rgba(200, 90, 50, 0.08)', border: '1px solid #E5C7B5', borderRadius: '12px', padding: '12px 14px', marginTop: '14px' }}>
-            <span style={{ color: '#0E352E', fontSize: '11px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <div style={{ background: 'rgba(242, 75, 38, 0.08)', border: '1px solid #43302a', borderRadius: '12px', padding: '12px 14px', marginTop: '14px' }}>
+            <span style={{ color: '#fff5e8', fontSize: '11px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px' }}>
               ✨ Honest pricing: Only food amount is charged.
             </span>
-            <span style={{ color: '#6E726B', fontSize: '10px', display: 'block', marginTop: '3px' }}>
+            <span style={{ color: '#bba99d', fontSize: '10px', display: 'block', marginTop: '3px' }}>
               No hidden fees, zero platform fee, and zero packaging charges.
             </span>
           </div>
@@ -612,7 +612,7 @@ function Cart({ cart, setCart, summary, customer, address, products }: { cart: C
             {addressReady ? <p><MapPin size={15}/>{address.recipient}, {address.line1}{address.line2 ? `, ${address.line2}` : ''}{address.landmark ? ` · Near ${address.landmark}` : ''}, {address.city} {address.postalCode}</p> : <Link href="/location" className="checkout-link" data-testid="link-add-address">Add a delivery address <ArrowRight size={14}/></Link>}
             <Link href="/location" className="edit-link" data-testid="link-edit-address">{addressReady ? 'Change address' : 'Manage address'}</Link>
             <h3>Your details</h3>
-            {customerReady ? <p><CircleUserRound size={15}/>{customer.name} · {customer.phone}</p> : <button className="checkout-link" style={{ border:0,background:'none',cursor:'pointer',padding:0,display:'inline-flex',alignItems:'center',gap:'6px',color:'#123D36',fontSize:'10px',fontWeight:600 }} onClick={()=>setShowModal(true)} data-testid="link-add-profile">Enter your name &amp; mobile <ArrowRight size={14}/></button>}
+            {customerReady ? <p><CircleUserRound size={15}/>{customer.name} · {customer.phone}</p> : <button className="checkout-link" style={{ border:0,background:'none',cursor:'pointer',padding:0,display:'inline-flex',alignItems:'center',gap:'6px',color:'#f24b26',fontSize:'10px',fontWeight:600 }} onClick={()=>setShowModal(true)} data-testid="link-add-profile">Enter your name &amp; mobile <ArrowRight size={14}/></button>}
           </div>
           {!validPhone && <div className="owner-notice" data-testid="status-whatsapp-unconfigured"><strong>Restaurant setup needed</strong><p>The WhatsApp number is blank. Add the restaurant’s verified international number in the replaceable config before enabling order requests.</p></div>}
           {message && <p className="form-message" role="status" data-testid="status-order-message">{message}</p>}
